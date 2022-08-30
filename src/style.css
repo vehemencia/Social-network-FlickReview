@@ -1,0 +1,143 @@
+/* Predefined properties*/
+:root {
+    --colorPink: #A70073;
+    --colorBarbie : #F76DC2;
+    --colorBlue : #00284A;
+    --colorWhite : #FEFFF1;
+    --colorBlack : #11110F;
+    --colorBarnie: #4800A6;
+    --logotypeFont: 'Chau Philomene One', sans-serif;
+    --principalFont : 'ABeeZee', sans-serif;
+}
+
+/* other predefined properties*/
+* {
+    margin : 0px;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--colorBlack);
+    background-image: url(./images/collage.png);
+    background-size: cover;
+}
+
+/* Log In Section*/
+
+/*header section*/
+header {
+    display: flex;
+    justify-content: center;
+}
+
+#logotypeDiv{
+    background-color: var(--colorBlue);
+    width: 30rem;
+    height: 9.5rem;
+    border-radius:  0 0 2rem 2rem;
+}
+
+#logotypeName{
+    color: var(--colorWhite);
+    font-family: var(--logotypeFont);
+    font-size: 4.5rem;
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+/*login box section*/
+
+#sectionLogIn{
+    display: flex;
+    justify-content: center;
+}
+
+#logInBox{
+    background-color: var(--colorBlue);
+    width: 30rem;
+    height: 27rem;
+    border-radius: 2rem;
+    margin-top: 12rem;
+    padding: 2rem;
+}
+
+#logInText{
+    font-family: var(--principalFont);
+    font-size: 3rem;
+    color: var(--colorWhite);
+}
+
+.inputBox{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem 0 ;
+}
+
+.pinkBox{
+    width: 3rem;
+    height: 2.5rem;
+    background-color: var(--colorPink);
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+#userName, #userPass{
+    width: 23rem;
+    height: 2.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border: none;
+    font-size: 1rem;
+}
+
+#logInButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#logInButton{
+    width: 8.9rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: var(--colorPink);
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 0.5rem;
+    margin: auto;
+
+}
+
+#logInButton:hover{
+    cursor: pointer;
+    background-color: var(--colorBarnie);
+}
+
+.textLogInBox{
+    font-size: 1.4rem;
+    color: var(--colorWhite);
+    font-family: var(--principalFont);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#googleImg{
+    width: 10rem;
+    height: 2.5rem;
+}
+
+span {
+    color: var(--colorBarbie);
+    font-size: 1.4rem;
+    font-family: var(--principalFont);
+    margin-left: 0.5rem;
+}
+
+span:hover{
+    cursor: pointer;
+    color: var(--colorPink);
+}
+
+
+

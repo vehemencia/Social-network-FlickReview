@@ -4,10 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Chau+Philomene+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
-  <main id ='root'></main>
+  <main id ='root'>
+  
+    <header>
+    <div id = 'logotypeDiv'>
+      <h1 id = 'logotypeName'>FlickReview</h1>
+    </div>
+    </header>
+
+    <section id = 'sectionLogIn'>
+    <div id = 'logInBox'>
+      <h3 id = 'logInText'>Log In</h3>
+      <div class = 'inputBox'>
+      <canvas class = 'pinkBox'></canvas>
+      <input id = 'userName' type = 'text' placeholder = "user name"></input>
+      </div>
+      <div class = 'inputBox'>
+      <canvas class = 'pinkBox'></canvas>
+      <input id = 'userPass' type = 'text' placeholder = "password"></input>
+      </div>
+      <div id= 'logInButtons'>
+      <button id = 'logInButton'>Action!</button>
+      <p class = 'textLogInBox'>Or</p>
+      <img id = 'googleImg'>
+      <p class = 'textLogInBox'>Don't have an account?<span>Sign Up!</span></p>
+      </div>
+    </div>
+    </section>
+
+  </main>
   <script type="module" src="main.js"></script>
 </body>
 </html>
