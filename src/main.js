@@ -7,6 +7,7 @@ const rootMain = document.querySelector('#root');
 
 // save in an object routes
 const routes = {
+  '/': login,
   '/home': home,
   '/profile': profile,
 };
