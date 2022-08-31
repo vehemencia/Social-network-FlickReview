@@ -1,13 +1,14 @@
 // Import functions that show/append nodes
 import { home } from './components/home.js';
 import { profile } from './components/profile.js';
+import { logIn } from './components/login.js';
 
 // save main box content in a variable
 const rootMain = document.querySelector('#root');
 
 // save in an object routes
 const routes = {
-  '/': login,
+  '/': logIn,
   '/home': home,
   '/profile': profile,
 };
@@ -19,7 +20,9 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  rootMain.removeChild(rootMain.firstChild);
+  while (rootMain.firstChild) {
+    rootMain.removeChild(rootMain.firstChild);
+  }
   rootMain.appendChild(routes[pathname]());
 };
 
@@ -28,7 +31,9 @@ const component = routes[window.location.pathname];
 
 // remove and show nodes according to saved route
 window.onpopstate = () => {
-  rootMain.removeChild(rootMain.firstChild);
+  while (rootMain.firstChild) {
+    rootMain.removeChild(rootMain.firstChild);
+  }
   rootMain.append(component());
 };
 
