@@ -1,22 +1,22 @@
-// Import functions that show/append nodes
+// import functions that show/append nodes
 import { home } from './components/home.js';
 import { profile } from './components/profile.js';
 
-// save main box content in a variable
+// access to root through querySelector
 const rootMain = document.querySelector('#root');
 
-// save in an object routes
+// create routes to access later using nodes
 const routes = {
-  '/': login,
+  //'/': login,
   '/home': home,
   '/profile': profile,
 };
 
-// function for changing nodes according to route
-export const onNavigate = (pathname) => {
+// function for changing nodes according to their route
+export const onNavigate = (pathname) => { //this pathname is used as a parameter
   window.history.pushState(
     {},
-    pathname,
+    pathname, // this pathname, again, is the one obtained thru the parameter
     window.location.origin + pathname,
   );
   rootMain.removeChild(rootMain.firstChild);
@@ -26,7 +26,7 @@ export const onNavigate = (pathname) => {
 // variable with value (content according to layout) of route
 const component = routes[window.location.pathname];
 
-// remove and show nodes according to saved route
+// remove and show nodes according to saved route via popstate, which is an event
 window.onpopstate = () => {
   rootMain.removeChild(rootMain.firstChild);
   rootMain.append(component());
