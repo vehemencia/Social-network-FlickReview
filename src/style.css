@@ -139,5 +139,81 @@ span:hover{
     color: var(--colorPink);
 }
 
+@media (min-width: 768px) {
+    /* Log In Section*/
+    
+    /*header section*/
+    #logotypeDiv{
+        width: 100%;
+        border-radius:  0 0;
+    }
+    
+    #logotypeName{
+        font-size: 6rem;
+        margin-top: 1rem;
+    }
+    
+    /*login box section*/
+    #logInBox{
+        width: 60rem;
+        height: 35.5rem;
+        padding: 3rem;
+    }
+    
+    #logInText{
+        font-size: 4rem;
+        margin-top: -1rem;
+    }
+    
+    .inputBox{
+        margin: 2rem 0;
+        justify-content: center;
+    }
+    
+    .pinkBox{
+        width: 4rem;
+        height: 3.5rem;
+    }
+    
+    #userName, #userPass{
+        width: 45rem;
+        height: 3.5rem;
+        font-size: 1.5rem;
+    }
+    
+    #logInButton{
+        width: 8rem;
+        height: 3rem;
+        font-size: 1.5rem;    
+    }
+    
+    .textLogInBox{
+        font-size: 1.7rem;
+    }
+    
+    #googleImg{
+        width: 15rem;
+        height: 3rem;
+    }
+    
+    span {
+        font-size: 1.7rem;
+        margin-left: 1rem;
+    }
+}
+
+/*PROPIEDADES TEMPORALES*/
+
+.titulo1{
+    font-family: var(--principalFont);
+    font-size: 5rem;
+    color: var(--colorWhite);
+}
+
+.boton1{
+    width: auto;
+    height: 3rem;
+    font-size: 1.5rem;  
+}
 
 
