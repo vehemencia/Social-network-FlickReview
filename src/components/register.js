@@ -64,6 +64,10 @@ export const register = () => {
 
   const registerButtonsDiv = document.createElement('div');
   registerButtonsDiv.setAttribute('id', 'registerButtons');
+
+  const termsDiv = document.createElement('div');
+  termsDiv.setAttribute('id', 'termsConditions');
+
   
   const acceptTerms = document.createElement('input');
   acceptTerms.setAttribute('id', 'termsCheckbox')
@@ -95,10 +99,11 @@ export const register = () => {
   inputEmail.append(sectionCanvasPinkTwo, inputEmailSection);
   createPassword.append(sectionCanvasPinkThree, createPasswordSection);
   confirmPassword.append(sectionCanvasPinkFour, confirmPasswordSection);
+  termsDiv.append(acceptTerms, acceptTermsText);
   // Insert SPAN in paragraph
   secondParagraphSection.appendChild(spanParagraphSection);
   // Insert childs of registerButtons
-  registerButtonsDiv.append(acceptTerms, acceptTermsText, registerButtonSection, sectionFirstParr, sectionGoogleLog, secondParagraphSection);
+  registerButtonsDiv.append(termsDiv, registerButtonSection, sectionFirstParr, sectionGoogleLog, secondParagraphSection);
   // Insert DIV and others tags in DIV MAIN
   sectionDivMain.append(sectionTitle, createUsername, inputEmail, createPassword, confirmPassword, registerButtonsDiv);
   // Insert Div section in Section Tag

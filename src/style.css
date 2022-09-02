@@ -48,7 +48,8 @@ header {
 
 /*login box section*/
 
-#sectionLogIn, #registerSection {
+#sectionLogIn,
+#registerSection {
     display: flex;
     justify-content: center;
 }
@@ -286,7 +287,8 @@ span:hover {
     display: flex;
 }
 
-#typeMovie , #typeReview {
+#typeMovie,
+#typeReview {
     width: 33rem;
 }
 
@@ -319,8 +321,10 @@ span:hover {
     color: var(--colorWhite);
 }
 
-#createusername, #inputemail,
-#createpass, #confirmpass {
+#createusername,
+#inputemail,
+#createpass,
+#confirmpass {
     width: 23rem;
     height: 2.5rem;
     border-radius: 0 0.5rem 0.5rem 0;
@@ -336,13 +340,15 @@ span:hover {
     color: var(--colorWhite);
     border: none;
     border-radius: 0.5rem;
-    margin: auto;
+    margin: 1rem auto auto auto;
 }
 
 #privacyText {
     font-family: var(--principalFont);
     font-size: 1rem;
     color: var(--colorWhite);
+    align-items: center;
+    margin-left: 0.5rem;
 }
 
 #registerButtons {
@@ -358,4 +364,19 @@ span:hover {
     font-family: var(--principalFont);
     text-align: center;
     margin: 1rem 0;
+}
+
+#termsConditions{
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    #registerBox {
+        height: 46rem;
+    }
+
+    #createusername, #inputemail, #createpass, #confirmpass {
+    height: 3.44rem;
+}
 }
