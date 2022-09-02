@@ -3,7 +3,7 @@ import { onNavigate } from '../main.js';
 export const register = () => {
   const bodySelector = document.querySelector('body'); // Here you can select body element from HTML
   bodySelector.style.backgroundImage = 'url(./images/collage.png)'; // 
-  
+
   const registerPageHeader = document.createElement('header'); // document.createElement creates HTML elements dynamically, a header tag in this case
 
   const headerDiv = document.createElement('div');
@@ -68,7 +68,6 @@ export const register = () => {
   const termsDiv = document.createElement('div');
   termsDiv.setAttribute('id', 'termsConditions');
 
-  
   const acceptTerms = document.createElement('input');
   acceptTerms.setAttribute('id', 'termsCheckbox')
   acceptTerms.setAttribute('type', 'checkbox');
@@ -119,7 +118,6 @@ export const register = () => {
   spanParagraphSection.addEventListener('click', () => {
     onNavigate('/');
   })
-
 
   // Creation and insertion of DIV for all content
   const allContent = document.createElement('div');

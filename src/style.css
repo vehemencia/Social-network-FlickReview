@@ -366,7 +366,7 @@ span:hover {
     margin: 1rem 0;
 }
 
-#termsConditions{
+#termsConditions {
     display: flex;
     margin-top: 0.5rem;
 }
@@ -376,7 +376,10 @@ span:hover {
         height: 46rem;
     }
 
-    #createusername, #inputemail, #createpass, #confirmpass {
-    height: 3.44rem;
-}
+    #createusername,
+    #inputemail,
+    #createpass,
+    #confirmpass {
+        height: 3.44rem;
+    }
 }
