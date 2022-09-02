@@ -1,18 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Chau+Philomene+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Chau+Philomene+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>FlickReview</title>
 </head>
+
 <body>
-  <main id ='root'>
+  <main id='root'>
+    <header id="homeHeader">
+      <h1 id="homeTitle">FlickReview</h1>
+      <div class="hamburgermenu">
+        <span class="lineone lines"></span><span class="linetwo lines"></span><span class="linethree lines"></span>
+      </div>
+      <ul class="menu">
+        <li>Profile</li>
+        <li>Log Out</li>
+      </ul>
+    </header>
+    <section id="createpostBox">
+      <input id="typeMovie" type="text" placeholder="Which movie did you watched?"></input>
+      <input id="typeReview" type="text" placeholder="Write your review here..."></input>
+      <button id="shareReviewButton" type="button">SHARE</button>
+    </section>
+    <div id="reviewsText">
+      <h3>Reviews</h3><canvas id="reviewsLine"></canvas>
+    </div>
+    <article id="reviewBox">
+      <div id="generalinfo">
+        <img src=".\images\Agnes-placeholder.PNG" alt="User profile picture" id="womanprofileimg">
+        <div id="userAndMovieInfo">
+          <h3 id="userNameHome">Gabs</h3>
+          <h4 id="movieNameHome">Movie: Everything Everywhere All At Once</h4>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-dots" width="24" height="24"
+          viewBox="0 0 24 24" stroke-width="1" stroke="#FEFFF1" fill="none" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <circle cx="5" cy="12" r="1" />
+          <circle cx="12" cy="12" r="1" />
+          <circle cx="19" cy="12" r="1" />
+        </svg>
+      </div>
+      <p id="writtenreview">Loren ipsum :3 idufudsfsgdgd idufudsf sgdgd idufudsfsgdgdidu fudsfsgdgd idufudsfsgdgd fdgdfv lorem lorem hdgsgds ydgsyfgydgyf ydsyyfsg very good movie 100 stars</p>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-heart" width="24" height="24"
+        viewBox="0 0 24 24" stroke-width="1" stroke="#FEFFF1" fill="none" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+        <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+      </svg>
+    </article>
   </main>
-  <script type="module" src="main.js"></script>
+  <!-- <script type="module" src="main.js"></script>-->
 </body>
+
 </html>
