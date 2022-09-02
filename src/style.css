@@ -48,7 +48,7 @@ header {
 
 /*login box section*/
 
-#sectionLogIn {
+#sectionLogIn, #registerSection {
     display: flex;
     justify-content: center;
 }
@@ -95,7 +95,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 #logInButton {
@@ -301,4 +300,62 @@ span:hover {
 
 #shareReviewButton {
     height: 1.6rem;
+}
+
+/* Register section */
+
+#registerBox {
+    background-color: var(--colorBlue);
+    width: 30rem;
+    height: 36rem;
+    border-radius: 2rem;
+    margin-top: 8rem;
+    padding: 2rem;
+}
+
+#registerText {
+    font-family: var(--principalFont);
+    font-size: 3rem;
+    color: var(--colorWhite);
+}
+
+#createusername, #inputemail,
+#createpass, #confirmpass {
+    width: 23rem;
+    height: 2.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border: none;
+    font-size: 1rem;
+}
+
+#showtimeButton {
+    width: 8.9rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: var(--colorPink);
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 0.5rem;
+    margin: auto;
+}
+
+#privacyText {
+    font-family: var(--principalFont);
+    font-size: 1rem;
+    color: var(--colorWhite);
+}
+
+#registerButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textregisterBox {
+    font-size: 1.4rem;
+    color: var(--colorWhite);
+    font-family: var(--principalFont);
+    text-align: center;
+    margin: 1rem 0;
 }
