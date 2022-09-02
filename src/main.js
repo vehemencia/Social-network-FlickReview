@@ -6,9 +6,10 @@ import { logIn } from './components/login.js';
 // save main box content in a variable
 const rootMain = document.querySelector('#root');
 
-// save in an object routes
+// create object routes
 const routes = {
   '/': logIn,
+  //'/register': register,
   '/home': home,
   '/profile': profile,
 };
