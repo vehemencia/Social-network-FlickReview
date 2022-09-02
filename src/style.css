@@ -278,17 +278,24 @@ span:hover {
 /*Hamburger menu ends here*/
 
 #createpostBox {
-    height: 10rem;
-    width: 35.5rem;
+    height: 10.5rem;
+    width: 32rem;
     background-color: var(--colorBlue);
     color: var(--colorWhite);
     border-radius: 1rem;
-    margin: 2rem 1rem;
+    margin: 2rem 2.5rem;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1rem;
 }
 
-#typeMovie , #typeReview {
-    width: 33rem;
+#typeMovie,
+#typeReview {
+    width: 30rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 0.9rem;
 }
 
 #typeMovie {
@@ -297,8 +304,95 @@ span:hover {
 
 #typeReview {
     height: 4.3rem;
+    margin-top: 0.5rem;
 }
 
 #shareReviewButton {
     height: 1.6rem;
+    margin-top: 0.5rem;
+    background-color: var(--colorPink);
+    border-radius: 0.5rem;
+    border: none;
+    color: var(--colorWhite);
+    margin-right: 1rem;
+    margin-top: 0.8rem;
+    align-self: flex-end;
+    width: 6rem;
+    font-size: 0.8rem;
+}
+
+#reviewsText {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 32rem;
+    margin: 2rem 2.5rem;
+}
+
+#reviewsLine {
+    height: 0.1rem;
+    width: 22rem;
+    background-color: #2f2f2f;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+h3 {
+    color: var(--colorWhite);
+    font-family: var(--principalFont);
+    font-size: 1.6rem;
+}
+
+#reviewBox {
+    height: auto;
+    width: 32rem;
+    background-color: var(--colorBlue);
+    color: var(--colorWhite);
+    border-radius: 1rem;
+    margin: 2rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    font-family: var(--principalFont);
+}
+
+#womanprofileimg {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50rem;
+    align-self: flex-start;
+    border: 0.1rem solid var(--colorWhite);
+}
+
+#generalinfo {
+    width: 30rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+#userAndMovieInfo {
+    width: 22rem;
+    justify-items: flex-start;
+}
+
+#writtenreview {
+    max-width: 30rem;
+    text-align: justify;
+    margin-top: 1rem;
+    font-size: 0.7rem;
+}
+
+#userNameHome {
+    font-size: 1.4rem;
+}
+
+#movieNameHome {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+}
+
+.icon-tabler-heart {
+    align-self: flex-end;
 }
