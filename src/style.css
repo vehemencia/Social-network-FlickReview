@@ -225,8 +225,8 @@ span:hover {
     height: 9.5rem;
     width: auto;
     background-color: var(--colorBlue);
-    background-image: url(https://i.blogs.es/ccecab/blade-runner-2049-critica-espinof/1366_2000.jpeg);
-    background-size: 125%;
+    background-image: url(./images/headerHomeImg.png);
+    background-size: 200%;
     background-position: center bottom;
 }
 
@@ -236,7 +236,7 @@ span:hover {
     color: var(--colorWhite);
     position: relative;
     top: 3rem;
-    right: 7rem;
+    right: 11rem;
 }
 
 /* This is for hamburger menu*/
@@ -277,13 +277,15 @@ span:hover {
 
 /*Hamburger menu ends here*/
 
+/* Create post box*/
+
 #createpostBox {
     height: 10.5rem;
     width: 32rem;
     background-color: var(--colorBlue);
     color: var(--colorWhite);
     border-radius: 1rem;
-    margin: 2rem 2.5rem;
+    margin: 2rem 4.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -296,6 +298,7 @@ span:hover {
     border-radius: 0.5rem;
     border: none;
     font-size: 0.9rem;
+    font-family: var(--principalFont);
 }
 
 #typeMovie {
@@ -321,22 +324,30 @@ span:hover {
     font-size: 0.8rem;
 }
 
+#shareReviewButton:hover{
+    cursor: pointer;
+    background-color: var(--colorBarnie);
+}
+
+/*Division line*/
+
 #reviewsText {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 32rem;
-    margin: 2rem 2.5rem;
+    width: 34rem;
+    margin: 2rem 3.6rem;
 }
 
 #reviewsLine {
     height: 0.1rem;
-    width: 22rem;
+    width: 23rem;
     background-color: #2f2f2f;
     border: none;
     border-radius: 0.5rem;
 }
+
 
 h3 {
     color: var(--colorWhite);
@@ -344,13 +355,15 @@ h3 {
     font-size: 1.6rem;
 }
 
+/*Published Post*/
+
 #reviewBox {
     height: auto;
     width: 32rem;
     background-color: var(--colorBlue);
     color: var(--colorWhite);
     border-radius: 1rem;
-    margin: 2rem 2.5rem;
+    margin: 2rem 4.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -359,8 +372,8 @@ h3 {
 }
 
 #womanprofileimg {
-    width: 3rem;
-    height: 3rem;
+    width: 3.2rem;
+    height: 3.2rem;
     border-radius: 50rem;
     align-self: flex-start;
     border: 0.1rem solid var(--colorWhite);
@@ -378,21 +391,316 @@ h3 {
 }
 
 #writtenreview {
-    max-width: 30rem;
+    max-width: 25rem;
     text-align: justify;
     margin-top: 1rem;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
 }
 
 #userNameHome {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 }
 
 #movieNameHome {
-    font-size: 0.8rem;
+    font-size: 1rem;
     margin-top: 0.2rem;
 }
 
 .icon-tabler-heart {
     align-self: flex-end;
 }
+
+/*Meanwhile buttons for go back to log in and go to profile*/
+
+#meanWhileDiv{
+    width: 20rem; 
+    display: flex;
+    justify-content: space-between;
+    margin-left: 11rem;
+    
+}
+
+.meanWhile{
+    height: 2.5rem;
+    width: 8rem;
+    background-color: var(--colorPink);
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-family: var(--principalFont);
+    
+}
+
+.meanWhile:hover{
+    cursor: pointer;
+    background-color: var(--colorBarnie);
+}
+
+/* here ends div of meanwhile buttons*/ 
+
+    @media (min-width: 768px) {
+       /* Home Section*/
+
+        /*header section*/ 
+        #homeHeader{
+            height: 9.5rem;
+            width: auto;
+            background-size: 108%;
+        }  
+        #homeTitle {
+            font-size: 4rem;
+            top: 3rem;
+            right: 26rem;
+        }     
+
+        /* This is for hamburger menu*/
+
+        .hamburgermenu {
+            height: 3rem;
+            width: 3.5rem;
+            top: 3.9rem;
+            right: 4rem;
+        }
+
+        /*Hamburger menu ends here*/
+
+        /*Create Post Box*/
+
+        #createpostBox {
+            height: 17rem;
+            width: 52rem;
+            margin: 5rem 12rem;
+            padding: 2rem;
+        }
+
+        #typeMovie,
+        #typeReview {
+            width: 48rem;
+            font-size: 2rem;
+        }
+
+        #typeMovie {
+            height: 3rem;
+        }
+
+        #typeReview {
+            height: 8rem;
+            margin-top: 1.5rem;
+        }
+
+        #shareReviewButton {
+            height: 4rem;
+            width: 10rem;
+            margin-right: 0rem;
+            margin-top: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /*Division line*/
+
+        #reviewsText {
+            width: 52rem;
+            margin: 5rem 12rem;
+            justify-content: space-between;
+        }
+
+        #reviewsLine {
+            height: 0.3rem;
+            width: 36rem;
+        }
+
+        h3 {
+            font-size: 3.2rem;
+        }
+
+        /*Published Post*/
+
+        #reviewBox {
+            height: auto;
+            width: 52rem;
+            margin: 5rem 12rem;
+            padding: 2rem;
+        }
+
+        #womanprofileimg {
+            width: 6.4rem;
+            height: 6.4rem;
+            border-radius: 50rem;
+            border: 0.2rem solid var(--colorWhite);
+        }
+
+        #generalinfo {
+            width: 48.5rem;
+        }
+
+        #userAndMovieInfo {
+            width: 35rem;
+        }
+
+        #writtenreview {
+            max-width: 45rem;
+            margin-top: 1.5rem;
+            font-size: 2rem;
+        }
+
+        #userNameHome {
+            font-size: 3rem;
+        }
+
+        #movieNameHome {
+            font-size: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .icon-tabler-dots {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .icon-tabler-heart {
+            align-self: flex-end;
+            width: 3rem;
+            height: 3rem;
+        }
+
+        /*Meanwhile buttons for go back to log in and go to profile*/
+
+        #meanWhileDiv{
+            width: 48rem; 
+            margin-left: 13.5rem; 
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .meanWhile{
+            height: 4rem;
+            width: 18rem;
+            font-size: 3rem;
+        }
+        /* here ends div of meanwhile buttons*/ 
+
+    }
+
+    @media (min-width: 1025px) {
+
+         /* Home Section*/
+
+        /*header section*/ 
+        #homeHeader{
+            background-size: 100% 100%;
+        }  
+        #homeTitle {
+            right: 54rem;
+        }  
+        
+        /* This is for hamburger menu*/
+
+        .hamburgermenu {
+            right: 5rem;
+        }
+
+        /*Hamburger menu ends here*/
+
+        /*Create Post Box*/
+
+        #createpostBox {
+            height: 15rem;
+            width: 60rem;
+            margin: 5rem 38rem 2rem 38rem;
+            padding: 2rem;
+        }
+
+        #typeMovie,
+        #typeReview {
+            width: 56rem;
+            font-size: 1.5rem;
+        }
+
+        #typeReview {
+            height: 10rem;
+        }
+
+        
+        #shareReviewButton {
+            height: 2.5rem;
+            width: 10rem;
+            margin-right: 0rem;
+            margin-top: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        /*Division line*/ 
+
+        #reviewsText {
+            width: 60rem;
+            margin: 0rem 38rem;
+        }
+
+        #reviewsLine {
+            height: 0.2rem;
+            width: 40rem;
+        }
+
+         /*Published Post*/
+
+         #reviewBox {
+            height: auto;
+            width: 60rem;
+            margin: 2rem 38rem;
+            padding: 2rem;
+        }
+
+        #generalinfo {
+            width: 56rem;
+        }
+
+        #userAndMovieInfo {
+            width: 44rem;
+        }
+
+        #writtenreview {
+            max-width: 53rem;
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
+
+        #userNameHome {
+            font-size: 2.2rem;
+        }
+
+        #movieNameHome {
+            font-size: 1.7rem;
+            margin-top: 0.5rem;
+        }
+
+        .icon-tabler-dots {
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        .icon-tabler-heart {
+            align-self: flex-end;
+            width: 2.5rem;
+            height: 2.5rem;
+        }
+
+        /*Meanwhile buttons for go back to log in and go to profile*/
+
+        #meanWhileDiv{
+            width: 48rem; 
+            margin-left: 44rem; 
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .meanWhile{
+            height: 2rem;
+            width: 15rem;
+            font-size: 1.5rem;
+        }
+        /* here ends div of meanwhile buttons*/ 
+
+
+    }

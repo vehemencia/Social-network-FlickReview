@@ -9,7 +9,7 @@ const rootMain = document.querySelector('#root');
 // create object routes
 const routes = {
   '/': logIn,
-  //'/register': register,
+  // '/register': register,
   '/home': home,
   '/profile': profile,
 };
