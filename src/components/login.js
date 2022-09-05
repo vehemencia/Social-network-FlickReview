@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-unresolved
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 
 export const logIn = () => {
@@ -83,7 +85,18 @@ export const logIn = () => {
 
   // Add Event to button Action!
   sectionButtonLog.addEventListener('click', () => {
-    onNavigate('/home');
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, sectionInputUserName.value, sectionInputPass.value)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        console.log(user)
+        onNavigate('/home');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   });
 
   sectionSpanParr.addEventListener('click', () => {

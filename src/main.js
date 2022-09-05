@@ -4,7 +4,8 @@ import { profile } from './components/profile.js';
 import { logIn } from './components/login.js';
 import { register } from './components/register.js';
 import { app } from './lib/config.js';
-console.log(app);
+
+
 
 // save main box content in a variable
 const rootMain = document.querySelector('#root');
