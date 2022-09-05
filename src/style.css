@@ -48,7 +48,8 @@ header {
 
 /*login box section*/
 
-#sectionLogIn {
+#sectionLogIn,
+#registerSection {
     display: flex;
     justify-content: center;
 }
@@ -399,7 +400,7 @@ h3 {
 
 /* PROFILE */
 
-#profileHeader{
+#profileHeader {
     width: 100%;
     height: 21rem;
     border-radius: 0 0 12.5rem 12.5rem;
@@ -421,7 +422,7 @@ h3 {
     align-self: flex-start;
 }
 
-.profileMenu{
+.profileMenu {
     display: flex;
     flex-direction: column;
     width: 10rem;
@@ -429,7 +430,8 @@ h3 {
     margin-top: 2rem;
 }
 
-.buttonReturnHome, .buttonLogOut{
+.buttonReturnHome,
+.buttonLogOut {
     width: 8rem;
     height: 2rem;
     margin-top: 0.5rem;
@@ -441,7 +443,7 @@ h3 {
     font-family: var(--principalFont);
 }
 
-#userProfileImg{
+#userProfileImg {
     border-radius: 50rem;
     width: 14.5rem;
     height: 14.5rem;
@@ -451,7 +453,7 @@ h3 {
     border: 0.3rem solid var(--colorWhite);
 }
 
-.userNameProfile{
+.userNameProfile {
     color: var(--colorWhite);
     font-size: 2rem;
     font-family: var(--principalFont);
@@ -459,7 +461,7 @@ h3 {
     margin-top: 6.5rem;
 }
 
-#userQuote{
+#userQuote {
     color: var(--colorWhite);
     font-family: var(--principalFont);
     font-size: 1rem;
@@ -468,7 +470,7 @@ h3 {
     margin: 0.5rem 2.5rem 2rem 2.5rem;
 }
 
-#reviewText{
+#reviewText {
     display: flex;
     flex-direction: row;
     width: 32rem;
@@ -477,7 +479,7 @@ h3 {
     margin: 0 2.5rem;
 }
 
-.reviewsLineTwo{
+.reviewsLineTwo {
     width: 32rem;
     margin: 0 2.5rem;
     height: 0.1rem;
@@ -486,7 +488,7 @@ h3 {
     border-radius: 0.5rem;
 }
 
-.reviewsLineThree{
+.reviewsLineThree {
     width: 18rem;
     margin-left: 4.3rem;
     height: 0.1rem;
@@ -496,31 +498,32 @@ h3 {
 }
 
 @media (min-width: 768px) {
-    
-    #profileHeader{
+
+    #profileHeader {
         height: 15rem;
         border-radius: 0 0 6.5rem 6.5rem;
         background-image: url('./images/cover-profile-desktop.png');
         background-repeat: no-repeat;
         background-size: cover;
     }
-    
+
     #profileTitle {
         font-size: 4rem;
         position: relative;
         top: 4rem;
         left: 6rem;
     }
-    
-    .profileMenu{
+
+    .profileMenu {
         display: flex;
         flex-direction: row;
         width: 25rem;
         align-items: inherit;
         margin-top: 0rem;
     }
-    
-    .buttonReturnHome, .buttonLogOut{
+
+    .buttonReturnHome,
+    .buttonLogOut {
         position: absolute;
         top: 18rem;
         width: 12rem;
@@ -532,25 +535,28 @@ h3 {
         color: var(--colorPink);
     }
 
-    .buttonLogOut{
+    .buttonLogOut {
         margin-left: 0.5rem;
         right: 6rem;
     }
-    .buttonReturnHome{
+
+    .buttonReturnHome {
         right: 20rem;
     }
 
-    .buttonReturnHome:hover, .buttonLogOut:hover{
+    .buttonReturnHome:hover,
+    .buttonLogOut:hover {
         color: var(--colorWhite);
         border: 0.2rem solid var(--colorWhite);
         box-shadow: -0.5rem -0.5rem 10rem #f76dc262;
     }
-    #userProfileImg{
+
+    #userProfileImg {
         top: 18rem;
         left: 12rem;
     }
-    
-    .userNameProfile{
+
+    .userNameProfile {
         width: 32rem;
         text-align: center;
         position: absolute;
@@ -558,7 +564,7 @@ h3 {
         left: 3rem;
     }
 
-    #userQuote{
+    #userQuote {
         color: var(--colorWhite);
         font-family: var(--principalFont);
         font-size: 1rem;
@@ -566,8 +572,8 @@ h3 {
         width: 32rem;
         margin: 0.5rem 2.5rem 2rem 2.5rem;
     }
-    
-    #reviewText{
+
+    #reviewText {
         grid-column: 2 / 2;
         grid-row: 1;
         display: flex;
@@ -577,8 +583,8 @@ h3 {
         align-items: center;
         margin: 0 2.5rem;
     }
-    
-    .reviewsLineTwo{
+
+    .reviewsLineTwo {
         width: 32rem;
         margin: 0 2.5rem;
         height: 0.1rem;
@@ -586,13 +592,111 @@ h3 {
         border: none;
         border-radius: 0.5rem;
     }
-    
-    .reviewsLineThree{
+
+    .reviewsLineThree {
         width: 18rem;
         margin-left: 4.3rem;
         height: 0.1rem;
         background-color: #2f2f2f;
         border: none;
         border-radius: 0.5rem;
+    }
+}
+
+/* Register section */
+
+#registerBox {
+    background-color: var(--colorBlue);
+    width: 30rem;
+    height: 36rem;
+    border-radius: 2rem;
+    margin-top: 8rem;
+    padding: 2rem;
+}
+
+#registerText {
+    font-family: var(--principalFont);
+    font-size: 3rem;
+    color: var(--colorWhite);
+}
+
+#createusername,
+#inputemail,
+#createpass,
+#confirmpass {
+    width: 23rem;
+    height: 2.5rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border: none;
+    font-size: 1rem;
+}
+
+#showtimeButton {
+    width: 8.9rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    background-color: var(--colorPink);
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 0.5rem;
+    margin: 1rem auto auto auto;
+}
+
+#privacyText {
+    font-family: var(--principalFont);
+    font-size: 1rem;
+    color: var(--colorWhite);
+    align-items: center;
+    margin-left: 0.5rem;
+}
+
+#registerButtons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textregisterBox {
+    font-size: 1.4rem;
+    color: var(--colorWhite);
+    font-family: var(--principalFont);
+    text-align: center;
+    margin: 1rem 0;
+}
+
+#termsConditions {
+    display: flex;
+    margin-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+
+    #reviewsText {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 32rem;
+        margin: 2rem 2.5rem;
+    }
+
+    #reviewsLine {
+        height: 0.1rem;
+        width: 22rem;
+        background-color: #2f2f2f;
+        border: none;
+        border-radius: 0.5rem;
+    }
+
+    #registerBox {
+        height: 46rem;
+    }
+
+    #createusername,
+    #inputemail,
+    #createpass,
+    #confirmpass {
+        height: 3.44rem;
     }
 }
