@@ -1,8 +1,10 @@
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 
 export const logIn = () => {
   const bodyTag = document.querySelector('body');
   bodyTag.style.backgroundImage = 'url(./images/collage.png)';
+
   // Creation of DOM Elements of Header
   const headerLogIn = document.createElement('header');
 
@@ -13,7 +15,7 @@ export const logIn = () => {
   headerTitle.setAttribute('id', 'logotypeName');
   headerTitle.innerHTML = 'FlickReview';
 
-  /** Insert elements in Header tag */
+  /** Insert Elements in Header tag */
   headerDiv.appendChild(headerTitle);
   headerLogIn.appendChild(headerDiv);
 
@@ -68,24 +70,37 @@ export const logIn = () => {
 
   /** Insert elements in Section tag */
 
-  // Insert childs of Inputs
+  // Insert children of Inputs
   sectionDivInputUser.append(sectionCanvasPinkOne, sectionInputUserName);
   sectionDivInputPass.append(sectionCanvasPinkTwo, sectionInputPass);
-  // Insert SPAN in paragraph
+  // Insert Span in paragraph
   sectionSecondParr.appendChild(sectionSpanParr);
-  // Insert childs of logInButtons
+  // Insert children of logInButtons
   sectionDivButtons.append(sectionButtonLog, sectionFirstParr, sectionGoogleLog, sectionSecondParr);
-  // Insert DIV and others tags in DIV MAIN
+  // Insert Div and others tags in Div Main
   sectionDivMain.append(sectionTitle, sectionDivInputUser, sectionDivInputPass, sectionDivButtons);
   // Insert Div section in Section Tag
   sectionLogIn.appendChild(sectionDivMain);
 
-
   // Add Event to button Action!
   sectionButtonLog.addEventListener('click', () => {
-    onNavigate('/home');
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, sectionInputUserName.value, sectionInputPass.value)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        console.log(user)
+        onNavigate('/home');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   });
 
+  sectionSpanParr.addEventListener('click', () => {
+    onNavigate('/register');
+  });
 
   // Creation and insertion of DIV for all content
   const divAllContent = document.createElement('div');
