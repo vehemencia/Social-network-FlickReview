@@ -2,6 +2,7 @@
 import { home } from './components/home.js';
 import { profile } from './components/profile.js';
 import { logIn } from './components/login.js';
+import { register } from './components/register.js';
 
 // save main box content in a variable
 const rootMain = document.querySelector('#root');
@@ -9,7 +10,7 @@ const rootMain = document.querySelector('#root');
 // create object routes
 const routes = {
   '/': logIn,
-  //'/register': register,
+  '/register': register,
   '/home': home,
   '/profile': profile,
 };
