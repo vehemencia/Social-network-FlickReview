@@ -104,20 +104,19 @@ export const register = () => {
   // Insert childs of registerButtons
   registerButtonsDiv.append(termsDiv, registerButtonSection, sectionFirstParr, sectionGoogleLog, secondParagraphSection);
   // Insert DIV and others tags in DIV MAIN
+  // eslint-disable-next-line max-len
   sectionDivMain.append(sectionTitle, createUsername, inputEmail, createPassword, confirmPassword, registerButtonsDiv);
   // Insert Div section in Section Tag
   registerSection.appendChild(sectionDivMain);
-
 
   // Add Event to button Showtime!
   registerButtonSection.addEventListener('click', () => {
     onNavigate('/');
   });
 
-  // Add event to log in!
-  spanParagraphSection.addEventListener('click', () => {
+  secondParagraphSection.addEventListener('click', () =>{
     onNavigate('/');
-  })
+  });
 
   // Creation and insertion of DIV for all content
   const allContent = document.createElement('div');

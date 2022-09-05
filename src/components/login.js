@@ -86,6 +86,10 @@ export const logIn = () => {
     onNavigate('/home');
   });
 
+  sectionSpanParr.addEventListener('click', () => {
+    onNavigate('/register');
+  });
+
   // Creation and insertion of DIV for all content
   const divAllContent = document.createElement('div');
   divAllContent.append(headerLogIn, sectionLogIn);
