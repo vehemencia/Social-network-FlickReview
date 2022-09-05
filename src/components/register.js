@@ -1,8 +1,11 @@
+/* eslint-disable max-len */
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
+
 
 export const register = () => {
   const bodySelector = document.querySelector('body'); // Here you can select body element from HTML
-  bodySelector.style.backgroundImage = 'url(./images/collage.png)'; // 
+  bodySelector.style.backgroundImage = 'url(./images/collage.png)';
 
   const registerPageHeader = document.createElement('header'); // document.createElement creates HTML elements dynamically, a header tag in this case
 
@@ -13,7 +16,8 @@ export const register = () => {
   headerTitle.setAttribute('id', 'logotypeName'); // First you assign an attribute and then the value
   headerTitle.innerHTML = 'FlickReview';
 
-  headerDiv.appendChild(headerTitle); // Inserting elements in the header tag, first you call the base, then the thing to be inserted
+  headerDiv.appendChild(headerTitle);
+  // Inserting elements in the header tag, first you call the base, then the thing to be inserted
   registerPageHeader.appendChild(headerDiv);
 
   // Creating sign up section
@@ -69,10 +73,10 @@ export const register = () => {
   termsDiv.setAttribute('id', 'termsConditions');
 
   const acceptTerms = document.createElement('input');
-  acceptTerms.setAttribute('id', 'termsCheckbox')
+  acceptTerms.setAttribute('id', 'termsCheckbox');
   acceptTerms.setAttribute('type', 'checkbox');
   const acceptTermsText = document.createElement('text');
-  acceptTermsText.setAttribute('id', 'privacyText')
+  acceptTermsText.setAttribute('id', 'privacyText');
   acceptTermsText.innerHTML = ' I accept terms, conditions and privacy policies';
 
   const registerButtonSection = document.createElement('button');
@@ -84,7 +88,7 @@ export const register = () => {
   sectionFirstParr.innerHTML = 'Or';
   const secondParagraphSection = document.createElement('p');
   secondParagraphSection.classList.add('textregisterBox');
-  secondParagraphSection.innerHTML = "Already have an account?";
+  secondParagraphSection.innerHTML = 'Already have an account?';
   const spanParagraphSection = document.createElement('span');
   spanParagraphSection.innerHTML = 'Log In!';
 
@@ -111,10 +115,27 @@ export const register = () => {
 
   // Add Event to button Showtime!
   registerButtonSection.addEventListener('click', () => {
-    onNavigate('/');
+    // Authentication New user
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, inputEmailSection.value, createPasswordSection.value)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        console.log(user)
+        onNavigate('/home');
+        sendEmailVerification(auth.currentUser)
+          .then(() => {
+          // Email verification sent!
+          });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
   });
 
-  secondParagraphSection.addEventListener('click', () =>{
+  secondParagraphSection.addEventListener('click', () => {
     onNavigate('/');
   });
 
