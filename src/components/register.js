@@ -2,7 +2,7 @@ import { onNavigate } from '../main.js';
 
 export const register = () => {
   const bodySelector = document.querySelector('body'); // Here you can select body element from HTML
-  bodySelector.style.backgroundImage = 'url(./images/collage.png)'; // 
+  bodySelector.style.backgroundImage = 'url(./images/collage.png)'; //
 
   const registerPageHeader = document.createElement('header'); // document.createElement creates HTML elements dynamically, a header tag in this case
 
@@ -13,6 +13,7 @@ export const register = () => {
   headerTitle.setAttribute('id', 'logotypeName'); // First you assign an attribute and then the value
   headerTitle.innerHTML = 'FlickReview';
 
+  // eslint-disable-next-line max-len
   headerDiv.appendChild(headerTitle); // Inserting elements in the header tag, first you call the base, then the thing to be inserted
   registerPageHeader.appendChild(headerDiv);
 
@@ -69,10 +70,10 @@ export const register = () => {
   termsDiv.setAttribute('id', 'termsConditions');
 
   const acceptTerms = document.createElement('input');
-  acceptTerms.setAttribute('id', 'termsCheckbox')
+  acceptTerms.setAttribute('id', 'termsCheckbox');
   acceptTerms.setAttribute('type', 'checkbox');
   const acceptTermsText = document.createElement('text');
-  acceptTermsText.setAttribute('id', 'privacyText')
+  acceptTermsText.setAttribute('id', 'privacyText');
   acceptTermsText.innerHTML = ' I accept terms, conditions and privacy policies';
 
   const registerButtonSection = document.createElement('button');
@@ -84,7 +85,7 @@ export const register = () => {
   sectionFirstParr.innerHTML = 'Or';
   const secondParagraphSection = document.createElement('p');
   secondParagraphSection.classList.add('textregisterBox');
-  secondParagraphSection.innerHTML = "Already have an account?";
+  secondParagraphSection.innerHTML = 'Already have an account?';
   const spanParagraphSection = document.createElement('span');
   spanParagraphSection.innerHTML = 'Log In!';
 
@@ -102,6 +103,7 @@ export const register = () => {
   // Insert SPAN in paragraph
   secondParagraphSection.appendChild(spanParagraphSection);
   // Insert childs of registerButtons
+  // eslint-disable-next-line max-len
   registerButtonsDiv.append(termsDiv, registerButtonSection, sectionFirstParr, sectionGoogleLog, secondParagraphSection);
   // Insert DIV and others tags in DIV MAIN
   // eslint-disable-next-line max-len
@@ -114,7 +116,7 @@ export const register = () => {
     onNavigate('/');
   });
 
-  secondParagraphSection.addEventListener('click', () =>{
+  secondParagraphSection.addEventListener('click', () => {
     onNavigate('/');
   });
 
