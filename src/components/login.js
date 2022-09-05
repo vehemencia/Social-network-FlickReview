@@ -86,11 +86,6 @@ export const logIn = () => {
     onNavigate('/home');
   });
 
-  // Add event to sign up
-  sectionSpanParr.addEventListener('click', () => {
-    onNavigate('/register');
-  });
-
 
   // Creation and insertion of DIV for all content
   const divAllContent = document.createElement('div');
