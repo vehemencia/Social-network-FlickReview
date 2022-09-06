@@ -57,7 +57,7 @@ header {
 #logInBox {
     background-color: var(--colorBlue);
     width: 30rem;
-    height: 27rem;
+    height: auto;
     border-radius: 2rem;
     margin-top: 12rem;
     padding: 2rem;
@@ -158,7 +158,7 @@ span:hover {
     /*login box section*/
     #logInBox {
         width: 60rem;
-        height: 35.5rem;
+        height: auto;
         padding: 3rem;
     }
 
@@ -337,11 +337,12 @@ span:hover {
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 34rem;
-    margin: 2rem 3.6rem;
+    width: 32rem;
+    height: 1rem;
+    margin: 2rem 2.6rem;
 }
 
-.reviewsLine {
+#reviewsLine {
     height: 0.1rem;
     width: 23rem;
     background-color: #2f2f2f;
@@ -364,7 +365,7 @@ h3 {
     background-color: var(--colorBlue);
     color: var(--colorWhite);
     border-radius: 1rem;
-    margin: 2rem 4.6rem;
+    margin: 2rem 2.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -418,15 +419,22 @@ h3 {
     width: 20rem; 
     display: flex;
     justify-content: space-between;
-    margin-left: 11rem;
+    margin-left: 9rem;
     
 }
 
 .meanWhile{
     height: 2.5rem;
     width: 8rem;
-      font-size: 1rem;
+    font-size: 1rem;
     font-family: var(--principalFont); 
+    color: var(--colorWhite);
+    background-color: var(--colorPink);
+}
+
+.meanWhile:hover{
+    cursor: pointer;
+    background-color: var(--colorBarnie);
 }
 
     @media (min-width: 768px) {
@@ -914,7 +922,7 @@ h3 {
 #registerBox {
     background-color: var(--colorBlue);
     width: 30rem;
-    height: 36rem;
+    height: auto;
     border-radius: 2rem;
     margin-top: 8rem;
     padding: 2rem;
@@ -973,31 +981,10 @@ h3 {
 
 #termsConditions {
     display: flex;
-    margin-top: 0.5rem;
+    margin: 0.5rem 0;
 }
 
 @media (min-width: 768px) {
-
-    #reviewsText {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-        width: 32rem;
-        margin: 2rem 2.5rem;
-    }
-
-    #reviewsLine {
-        height: 0.1rem;
-        width: 22rem;
-        background-color: #2f2f2f;
-        border: none;
-        border-radius: 0.5rem;
-    }
-
-    #registerBox {
-        height: 46rem;
-    }
 
     #createusername,
     #inputemail,
@@ -1005,4 +992,16 @@ h3 {
     #confirmpass {
         height: 3.44rem;
     }
+}
+
+.registerErrorMessage{
+    width: auto;
+    height: auto;
+    color: var(--colorWhite);
+    background-color: red;
+    font-size: 1rem;
+    font-family: var(--principalFont);
+    margin-bottom: 0.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
 }

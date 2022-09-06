@@ -167,7 +167,6 @@ export const profile = () => {
   /** Insert elements in Article tag */
   articlePostReview.append(divContainArt, textReviewPost, btnLike);
 
-
   // Add Event to buttons Home and Log Out
   btnReturnHome.addEventListener('click', () => {
     onNavigate('/home');
@@ -175,7 +174,6 @@ export const profile = () => {
   btnLogOut.addEventListener('click', () => {
     onNavigate('/');
   });
-
 
   // --------- INSERT ELEMENTS IN ONE DIV --------- //
   const divForDesktop = document.createElement('div');
