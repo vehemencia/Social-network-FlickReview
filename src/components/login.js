@@ -1,4 +1,6 @@
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
+import { wrongPassword, removeErrorMessage } from '../lib/general.js';
 
 export const logIn = () => {
   const bodyTag = document.querySelector('body');
@@ -41,8 +43,8 @@ export const logIn = () => {
 
   const sectionInputUserName = document.createElement('input');
   sectionInputUserName.setAttribute('id', 'userName');
-  sectionInputUserName.setAttribute('type', 'text');
-  sectionInputUserName.setAttribute('placeholder', 'user name');
+  sectionInputUserName.setAttribute('type', 'email');
+  sectionInputUserName.setAttribute('placeholder', 'email');
   const sectionInputPass = document.createElement('input');
   sectionInputPass.setAttribute('id', 'userPass');
   sectionInputPass.setAttribute('type', 'password');
@@ -83,7 +85,21 @@ export const logIn = () => {
 
   // Add Event to button Action!
   sectionButtonLog.addEventListener('click', () => {
-    onNavigate('/home');
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, sectionInputUserName.value, sectionInputPass.value)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        console.log(user)
+        onNavigate('/home');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+
+        wrongPassword();
+        setTimeout(removeErrorMessage, 3000);
+      });
   });
 
   sectionSpanParr.addEventListener('click', () => {
