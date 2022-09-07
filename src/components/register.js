@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
-
+import { registerValidation, removeErrorMessage } from '../lib/general.js';
 
 export const register = () => {
   const bodySelector = document.querySelector('body'); // Here you can select body element from HTML
@@ -16,8 +16,8 @@ export const register = () => {
   headerTitle.setAttribute('id', 'logotypeName'); // First you assign an attribute and then the value
   headerTitle.innerHTML = 'FlickReview';
 
-  headerDiv.appendChild(headerTitle);
-  // Inserting elements in the header tag, first you call the base, then the thing to be inserted
+  // eslint-disable-next-line max-len
+  headerDiv.appendChild(headerTitle); // Inserting elements in the header tag, first you call the base, then the thing to be inserted
   registerPageHeader.appendChild(headerDiv);
 
   // Creating sign up section
@@ -52,10 +52,10 @@ export const register = () => {
   const createUsernameSection = document.createElement('input');
   createUsernameSection.setAttribute('id', 'createusername');
   createUsernameSection.setAttribute('type', 'text');
-  createUsernameSection.setAttribute('placeholder', 'choose your username');
+  createUsernameSection.setAttribute('placeholder', 'Tell us your full name');
   const inputEmailSection = document.createElement('input');
   inputEmailSection.setAttribute('id', 'inputemail');
-  inputEmailSection.setAttribute('type', 'text');
+  inputEmailSection.setAttribute('type', 'email');
   inputEmailSection.setAttribute('placeholder', 'write your e-mail');
   const createPasswordSection = document.createElement('input');
   createPasswordSection.setAttribute('id', 'createpass');
@@ -106,6 +106,7 @@ export const register = () => {
   // Insert SPAN in paragraph
   secondParagraphSection.appendChild(spanParagraphSection);
   // Insert childs of registerButtons
+  // eslint-disable-next-line max-len
   registerButtonsDiv.append(termsDiv, registerButtonSection, sectionFirstParr, sectionGoogleLog, secondParagraphSection);
   // Insert DIV and others tags in DIV MAIN
   // eslint-disable-next-line max-len
@@ -121,17 +122,18 @@ export const register = () => {
       .then((userCredential) => {
       // Signed in
         const user = userCredential.user;
-        console.log(user)
         onNavigate('/home');
         sendEmailVerification(auth.currentUser)
           .then(() => {
           // Email verification sent!
           });
       })
+
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
+        registerValidation(createUsernameSection.value, inputEmailSection.value, createPasswordSection.value, confirmPasswordSection.value, acceptTerms.checked);
+        setTimeout(removeErrorMessage, 3000);
       });
   });
 
