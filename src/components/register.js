@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
-import { registerValidation, removeErrorMessage } from '../lib/general.js';
+import { registerValidation, removeErrorMessage, messageDisplayError } from '../lib/general.js';
 
 export const register = () => {
   const bodySelector = document.querySelector('body'); // Here you can select body element from HTML
@@ -116,25 +116,31 @@ export const register = () => {
 
   // Add Event to button Showtime!
   registerButtonSection.addEventListener('click', () => {
-    // Authentication New user
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, inputEmailSection.value, createPasswordSection.value)
-      .then((userCredential) => {
-      // Signed in
-        const user = userCredential.user;
-        onNavigate('/home');
-        sendEmailVerification(auth.currentUser)
-          .then(() => {
-          // Email verification sent!
-          });
-      })
+    const validation = registerValidation(createUsernameSection.value, inputEmailSection.value, createPasswordSection.value, confirmPasswordSection.value, acceptTerms.checked);
 
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        registerValidation(createUsernameSection.value, inputEmailSection.value, createPasswordSection.value, confirmPasswordSection.value, acceptTerms.checked);
-        setTimeout(removeErrorMessage, 3000);
-      });
+    if (validation === false) {
+      setTimeout(removeErrorMessage, 3000);
+    } else {
+      // Authentication New user
+      const auth = getAuth();
+      createUserWithEmailAndPassword(auth, inputEmailSection.value, createPasswordSection.value)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          onNavigate('/home');
+          sendEmailVerification(auth.currentUser)
+            .then(() => {
+              // Email verification sent!
+            });
+        })
+
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          messageDisplayError(errorMessage);
+          setTimeout(removeErrorMessage, 3000);
+        });
+    }
   });
 
   secondParagraphSection.addEventListener('click', () => {
