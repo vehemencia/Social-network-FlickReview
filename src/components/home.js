@@ -27,6 +27,10 @@ export const home = () => {
   const hamburgerMenuLineThree = document.createElement('span');
   hamburgerMenuLineThree.classList.add('linethree', 'lines');
 
+  const greetingUser = document.createElement('h2');
+  greetingUser.setAttribute('id', 'greetingUserText');
+  greetingUser.innerHTML = 'Welcome!';
+
   /* const hamburgerMenuContent = document.createElement('ul');
   hamburgerMenuContent.classList.add('menu');
 
@@ -197,7 +201,7 @@ export const home = () => {
   // insertion of all content in home div
 
   // eslint-disable-next-line max-len
-  divAllHome.append(profileHeader, profileSection, reviewsDiv, articlePublishedReview, meanWhileDiv);
+  divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, articlePublishedReview, meanWhileDiv);
 
   return divAllHome;
 };
