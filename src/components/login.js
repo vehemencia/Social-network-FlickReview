@@ -1,6 +1,8 @@
-import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { wrongPassword, removeErrorMessage, validateLogin } from '../lib/general.js';
+
+const provider = new GoogleAuthProvider();
 
 export const logIn = () => {
   const bodyTag = document.querySelector('body');
@@ -66,7 +68,7 @@ export const logIn = () => {
   const sectionSpanParr = document.createElement('span');
   sectionSpanParr.innerHTML = 'Sign Up!';
 
-  const sectionGoogleLog = document.createElement('img');
+  const sectionGoogleLog = document.createElement('button');
   sectionGoogleLog.setAttribute('id', 'googleImg');
 
   /** Insert elements in Section tag */
@@ -105,6 +107,30 @@ export const logIn = () => {
       });
     };
   });
+
+  sectionGoogleLog.addEventListener('click', () => {
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        console.log(token);
+        // The signed-in user info.
+        const user = result.user;
+        onNavigate('/home');
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  })
 
   sectionSpanParr.addEventListener('click', () => {
     onNavigate('/register');
