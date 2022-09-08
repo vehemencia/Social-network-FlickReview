@@ -1,6 +1,6 @@
 import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
-import { wrongPassword, removeErrorMessage } from '../lib/general.js';
+import { wrongPassword, removeErrorMessage, validateLogin } from '../lib/general.js';
 
 export const logIn = () => {
   const bodyTag = document.querySelector('body');
@@ -85,6 +85,10 @@ export const logIn = () => {
 
   // Add Event to button Action!
   sectionButtonLog.addEventListener('click', () => {
+    const loginData = validateLogin(sectionInputUserName.value, sectionInputPass.value);
+    if (loginData == false) {
+      return setTimeout(removeErrorMessage, 3000);
+    } else {
     const auth = getAuth();
     signInWithEmailAndPassword(auth, sectionInputUserName.value, sectionInputPass.value)
       .then((userCredential) => {
@@ -96,10 +100,10 @@ export const logIn = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
         wrongPassword();
         setTimeout(removeErrorMessage, 3000);
       });
+    };
   });
 
   sectionSpanParr.addEventListener('click', () => {
