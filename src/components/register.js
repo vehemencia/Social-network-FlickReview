@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { registerValidation, removeErrorMessage, messageDisplayError } from '../lib/general.js';
+
+const provider = new GoogleAuthProvider();
 
 export const register = () => {
   const bodySelector = document.querySelector('body'); // Here you can select body element from HTML
@@ -92,7 +94,7 @@ export const register = () => {
   const spanParagraphSection = document.createElement('span');
   spanParagraphSection.innerHTML = 'Log In!';
 
-  const sectionGoogleLog = document.createElement('img');
+  const sectionGoogleLog = document.createElement('button');
   sectionGoogleLog.setAttribute('id', 'googleImg');
 
   /* Insert elements in registersection tag */
@@ -143,10 +145,34 @@ export const register = () => {
           if (errorMessage === "Firebase: Error (auth/email-already-in-use).") {
             messageDisplayError('This email already has an account', 'registerButtons', 'showtimeButton');
             setTimeout(removeErrorMessage, 3000);
-          } 
+          }
         });
     }
   });
+
+  sectionGoogleLog.addEventListener('click', () => {
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        console.log(token);
+        // The signed-in user info.
+        const user = result.user;
+        onNavigate('/home');
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        // ...
+      });
+  })
 
   secondParagraphSection.addEventListener('click', () => {
     onNavigate('/');
