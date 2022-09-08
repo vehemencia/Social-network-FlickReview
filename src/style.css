@@ -286,7 +286,7 @@ span:hover {
     background-color: var(--colorBlue);
     color: var(--colorWhite);
     border-radius: 1rem;
-    margin: 2rem 2.6rem;
+    margin: 1rem 2.6rem 2rem 2.6rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -325,7 +325,7 @@ span:hover {
     font-size: 0.8rem;
 }
 
-#shareReviewButton:hover{
+#shareReviewButton:hover {
     cursor: pointer;
     background-color: var(--colorBarnie);
 }
@@ -415,302 +415,306 @@ h3 {
 
 /*Meanwhile buttons for go back to log in and go to profile*/
 
-#meanWhileDiv{
-    width: 20rem; 
+#meanWhileDiv {
+    width: 20rem;
     display: flex;
     justify-content: space-between;
     margin-left: 9rem;
-    
+
 }
 
-.meanWhile{
+.meanWhile {
     height: 2.5rem;
     width: 8rem;
     font-size: 1rem;
-    font-family: var(--principalFont); 
+    font-family: var(--principalFont);
     color: var(--colorWhite);
     background-color: var(--colorPink);
 }
 
-.meanWhile:hover{
+.meanWhile:hover {
     cursor: pointer;
     background-color: var(--colorBarnie);
 }
 
-    @media (min-width: 768px) {
-       /* Home Section*/
+@media (min-width: 768px) {
+    /* Home Section*/
 
-        /*header section*/ 
-        #homeHeader{
-            height: 9.5rem;
-            width: auto;
-            background-size: 108%;
-        }  
-        #homeTitle {
-            font-size: 4rem;
-            top: 3rem;
-            right: 26rem;
-        }     
-
-        /* This is for hamburger menu*/
-
-        .hamburgermenu {
-            height: 3rem;
-            width: 3.5rem;
-            top: 3.9rem;
-            right: 4rem;
-        }
-
-        /*Hamburger menu ends here*/
-
-        /*Create Post Box*/
-
-        #createpostBox {
-            height: 17rem;
-            width: 52rem;
-            margin: 5rem 12rem;
-            padding: 2rem;
-        }
-
-        #typeMovie,
-        #typeReview {
-            width: 48rem;
-            font-size: 2rem;
-        }
-
-        #typeMovie {
-            height: 3rem;
-        }
-
-        #typeReview {
-            height: 8rem;
-            margin-top: 1.5rem;
-        }
-
-        #shareReviewButton {
-            height: 4rem;
-            width: 10rem;
-            margin-right: 0rem;
-            margin-top: 1.5rem;
-            font-size: 2rem;
-        }
-
-        /*Division line*/
-
-        #reviewsText {
-            width: 52rem;
-            margin: 5rem 12rem;
-            justify-content: space-between;
-        }
-
-        #reviewsLine {
-            height: 0.3rem;
-            width: 36rem;
-        }
-
-        h3 {
-            font-size: 3.2rem;
-        }
-
-        /*Published Post*/
-
-        #reviewBox {
-            height: auto;
-            width: 52rem;
-            margin: 5rem 12rem;
-            padding: 2rem;
-        }
-
-        #womanprofileimg {
-            width: 6.4rem;
-            height: 6.4rem;
-            border-radius: 50rem;
-            border: 0.2rem solid var(--colorWhite);
-        }
-
-        #generalinfo {
-            width: 48.5rem;
-        }
-
-        #userAndMovieInfo {
-            width: 35rem;
-        }
-
-        #writtenreview {
-            max-width: 45rem;
-            margin-top: 1.5rem;
-            font-size: 2rem;
-        }
-
-        #userNameHome {
-            font-size: 3rem;
-        }
-
-        #movieNameHome {
-            font-size: 2rem;
-            margin-top: 0.5rem;
-        }
-
-        .icon-tabler-dots {
-            width: 3rem;
-            height: 3rem;
-        }
-
-        .icon-tabler-heart {
-            align-self: flex-end;
-            width: 3rem;
-            height: 3rem;
-        }
-
-        /*Meanwhile buttons for go back to log in and go to profile*/
-
-        #meanWhileDiv{
-            width: 48rem; 
-            margin-left: 13.5rem; 
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .meanWhile{
-            height: 4rem;
-            width: 18rem;
-            font-size: 3rem;
-        }
-        
-        .meanWhile:hover{
-            cursor: pointer;
-            background-color: var(--colorBarnie);
-        }
-        /* here ends div of meanwhile buttons*/ 
-
+    /*header section*/
+    #homeHeader {
+        height: 9.5rem;
+        width: auto;
+        background-size: 108%;
     }
 
-    @media (min-width: 1025px) {
-
-         /* Home Section*/
-
-        /*header section*/ 
-        #homeHeader{
-            background-size: 100% 100%;
-        }  
-        #homeTitle {
-            right: 54rem;
-        }  
-        
-        /* This is for hamburger menu*/
-
-        .hamburgermenu {
-            right: 5rem;
-        }
-
-        /*Hamburger menu ends here*/
-
-        /*Create Post Box*/
-
-        #createpostBox {
-            height: 15rem;
-            width: 60rem;
-            margin: 5rem 38rem 2rem 38rem;
-            padding: 2rem;
-        }
-
-        #typeMovie,
-        #typeReview {
-            width: 56rem;
-            font-size: 1.5rem;
-        }
-
-        #typeReview {
-            height: 10rem;
-        }
-
-        
-        #shareReviewButton {
-            height: 2.5rem;
-            width: 10rem;
-            margin-right: 0rem;
-            margin-top: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        /*Division line*/ 
-
-        #reviewsText {
-            width: 60rem;
-            margin: 0rem 38rem;
-        }
-
-        #reviewsLine {
-            height: 0.2rem;
-            width: 40rem;
-        }
-
-         /*Published Post*/
-
-         #reviewBox {
-            height: auto;
-            width: 60rem;
-            margin: 2rem 38rem;
-            padding: 2rem;
-        }
-
-        #generalinfo {
-            width: 56rem;
-        }
-
-        #userAndMovieInfo {
-            width: 44rem;
-        }
-
-        #writtenreview {
-            max-width: 53rem;
-            margin-top: 1rem;
-            font-size: 1.5rem;
-        }
-
-        #userNameHome {
-            font-size: 2.2rem;
-        }
-
-        #movieNameHome {
-            font-size: 1.7rem;
-            margin-top: 0.5rem;
-        }
-
-        .icon-tabler-dots {
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-
-        .icon-tabler-heart {
-            align-self: flex-end;
-            width: 2.5rem;
-            height: 2.5rem;
-        }
-
-        /*Meanwhile buttons for go back to log in and go to profile*/
-
-        #meanWhileDiv{
-            width: 48rem; 
-            margin-left: 44rem; 
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .meanWhile{
-            height: 2rem;
-            width: 15rem;
-            font-size: 1.5rem;
-        }
-        
-        
-        .meanWhile:hover{
-            cursor: pointer;
-            background-color: var(--colorBarnie);
-        }
-        /* here ends div of meanwhile buttons*/ 
-
+    #homeTitle {
+        font-size: 4rem;
+        top: 3rem;
+        right: 26rem;
     }
+
+    /* This is for hamburger menu*/
+
+    .hamburgermenu {
+        height: 3rem;
+        width: 3.5rem;
+        top: 3.9rem;
+        right: 4rem;
+    }
+
+    /*Hamburger menu ends here*/
+
+    /*Create Post Box*/
+
+    #createpostBox {
+        height: 17rem;
+        width: 52rem;
+        margin: 5rem 12rem;
+        padding: 2rem;
+    }
+
+    #typeMovie,
+    #typeReview {
+        width: 48rem;
+        font-size: 2rem;
+    }
+
+    #typeMovie {
+        height: 3rem;
+    }
+
+    #typeReview {
+        height: 8rem;
+        margin-top: 1.5rem;
+    }
+
+    #shareReviewButton {
+        height: 4rem;
+        width: 10rem;
+        margin-right: 0rem;
+        margin-top: 1.5rem;
+        font-size: 2rem;
+    }
+
+    /*Division line*/
+
+    #reviewsText {
+        width: 52rem;
+        margin: 5rem 12rem;
+        justify-content: space-between;
+    }
+
+    #reviewsLine {
+        height: 0.3rem;
+        width: 36rem;
+    }
+
+    h3 {
+        font-size: 3.2rem;
+    }
+
+    /*Published Post*/
+
+    #reviewBox {
+        height: auto;
+        width: 52rem;
+        margin: 5rem 12rem;
+        padding: 2rem;
+    }
+
+    #womanprofileimg {
+        width: 6.4rem;
+        height: 6.4rem;
+        border-radius: 50rem;
+        border: 0.2rem solid var(--colorWhite);
+    }
+
+    #generalinfo {
+        width: 48.5rem;
+    }
+
+    #userAndMovieInfo {
+        width: 35rem;
+    }
+
+    #writtenreview {
+        max-width: 45rem;
+        margin-top: 1.5rem;
+        font-size: 2rem;
+    }
+
+    #userNameHome {
+        font-size: 3rem;
+    }
+
+    #movieNameHome {
+        font-size: 2rem;
+        margin-top: 0.5rem;
+    }
+
+    .icon-tabler-dots {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .icon-tabler-heart {
+        align-self: flex-end;
+        width: 3rem;
+        height: 3rem;
+    }
+
+    /*Meanwhile buttons for go back to log in and go to profile*/
+
+    #meanWhileDiv {
+        width: 48rem;
+        margin-left: 13.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .meanWhile {
+        height: 4rem;
+        width: 18rem;
+        font-size: 3rem;
+    }
+
+    .meanWhile:hover {
+        cursor: pointer;
+        background-color: var(--colorBarnie);
+    }
+
+    /* here ends div of meanwhile buttons*/
+
+}
+
+@media (min-width: 1025px) {
+
+    /* Home Section*/
+
+    /*header section*/
+    #homeHeader {
+        background-size: 100% 100%;
+    }
+
+    #homeTitle {
+        right: 54rem;
+    }
+
+    /* This is for hamburger menu*/
+
+    .hamburgermenu {
+        right: 5rem;
+    }
+
+    /*Hamburger menu ends here*/
+
+    /*Create Post Box*/
+
+    #createpostBox {
+        height: 15rem;
+        width: 60rem;
+        margin: 5rem 36rem 2rem 36rem;
+        padding: 2rem;
+    }
+
+    #typeMovie,
+    #typeReview {
+        width: 56rem;
+        font-size: 1.5rem;
+    }
+
+    #typeReview {
+        height: 10rem;
+    }
+
+
+    #shareReviewButton {
+        height: 2.5rem;
+        width: 10rem;
+        margin-right: 0rem;
+        margin-top: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    /*Division line*/
+
+    #reviewsText {
+        width: 60rem;
+        margin: 0rem 36rem;
+    }
+
+    #reviewsLine {
+        height: 0.2rem;
+        width: 40rem;
+    }
+
+    /*Published Post*/
+
+    #reviewBox {
+        height: auto;
+        width: 60rem;
+        margin: 2rem 36rem;
+        padding: 2rem;
+    }
+
+    #generalinfo {
+        width: 56rem;
+    }
+
+    #userAndMovieInfo {
+        width: 44rem;
+    }
+
+    #writtenreview {
+        max-width: 53rem;
+        margin-top: 1rem;
+        font-size: 1.5rem;
+    }
+
+    #userNameHome {
+        font-size: 2.2rem;
+    }
+
+    #movieNameHome {
+        font-size: 1.7rem;
+        margin-top: 0.5rem;
+    }
+
+    .icon-tabler-dots {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .icon-tabler-heart {
+        align-self: flex-end;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    /*Meanwhile buttons for go back to log in and go to profile*/
+
+    #meanWhileDiv {
+        width: 48rem;
+        margin-left: 44rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .meanWhile {
+        height: 2rem;
+        width: 15rem;
+        font-size: 1.5rem;
+    }
+
+
+    .meanWhile:hover {
+        cursor: pointer;
+        background-color: var(--colorBarnie);
+    }
+
+    /* here ends div of meanwhile buttons*/
+
+}
 
 /* PROFILE */
 
@@ -924,7 +928,7 @@ h3 {
     width: 30rem;
     height: auto;
     border-radius: 2rem;
-    margin-top: 8rem;
+    margin: 8rem 0;
     padding: 2rem;
 }
 
@@ -962,6 +966,7 @@ h3 {
     color: var(--colorWhite);
     align-items: center;
     margin-left: 0.5rem;
+    text-decoration: underline;
 }
 
 #registerButtons {
@@ -981,6 +986,8 @@ h3 {
 
 #termsConditions {
     display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin: 0.5rem 0;
 }
 
@@ -989,12 +996,27 @@ h3 {
     #createusername,
     #inputemail,
     #createpass,
-    #confirmpass {
+    #confirmpass,
+    #privacyText {
+        width: 45rem;
         height: 3.44rem;
+        font-size: 1.5rem;
+
     }
+
+    #registerBox {
+        width: 60rem;
+        height: auto;
+        padding: 3rem;
+    }
+
+    #termsCheckbox {
+        height: auto;
+    }
+
 }
 
-.registerErrorMessage{
+.registerErrorMessage {
     width: auto;
     height: auto;
     color: var(--colorWhite);
@@ -1004,4 +1026,19 @@ h3 {
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     padding: 1rem;
+}
+
+#privacyText:hover {
+    cursor: pointer;
+    color: var(--colorBarbie);
+    text-decoration: none;
+}
+
+#greetingUserText { 
+    font-size: 2rem;
+    font-family: var(--principalFont);
+    color: var(--colorWhite);
+    margin-top: 1rem;
+    text-align: center;
+
 }

@@ -114,10 +114,13 @@ export const register = () => {
   // Insert Div section in Section Tag
   registerSection.appendChild(sectionDivMain);
 
+  acceptTermsText.addEventListener('click', () => {
+    window.open('https://en.wikipedia.org/wiki/Terms_of_service', 'Terms and conditions');
+  })
+
   // Add Event to button Showtime!
   registerButtonSection.addEventListener('click', () => {
     const validation = registerValidation(createUsernameSection.value, inputEmailSection.value, createPasswordSection.value, confirmPasswordSection.value, acceptTerms.checked);
-
     if (validation === false) {
       setTimeout(removeErrorMessage, 3000);
     } else {
@@ -137,8 +140,10 @@ export const register = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          messageDisplayError(errorMessage);
-          setTimeout(removeErrorMessage, 3000);
+          if (errorMessage === "Firebase: Error (auth/email-already-in-use).") {
+            messageDisplayError('This email already has an account', 'registerButtons', 'showtimeButton');
+            setTimeout(removeErrorMessage, 3000);
+          } 
         });
     }
   });
