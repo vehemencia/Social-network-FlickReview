@@ -146,6 +146,7 @@ span {
     font-size: 1.4rem;
     font-family: var(--principalFont);
     margin-left: 0.5rem;
+    text-decoration: underline;
 }
 
 span:hover {
@@ -977,7 +978,7 @@ h3 {
 #privacyText {
     font-family: var(--principalFont);
     font-size: 1rem;
-    color: var(--colorWhite);
+    color: var(--colorBarbie);
     align-items: center;
     margin-left: 0.5rem;
     text-decoration: underline;
@@ -1043,7 +1044,7 @@ h3 {
 
 #privacyText:hover {
     cursor: pointer;
-    color: var(--colorBarbie);
+    color: var(--colorWhite);
     text-decoration: none;
 }
 

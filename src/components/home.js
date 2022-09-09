@@ -1,10 +1,22 @@
-import { onNavigate, userEmailForDOM } from '../main.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { onNavigate } from '../main.js';
+import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+import { db } from '../lib/config.js'
 
 export const home = () => {
+  try {
+    const docRef = addDoc(collection(db, "reviewsExamples"), {
+      title: "A Bugs Life",
+      review: "Good movie 10/10",
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+
   const auth = getAuth();
   const user = auth.currentUser;
-
+console.log(user)
   const divAllHome = document.createElement('div');
 
   const bodyTag = document.querySelector('body');
@@ -33,7 +45,7 @@ export const home = () => {
 
   const greetingUser = document.createElement('h2');
   greetingUser.setAttribute('id', 'greetingUserText');
-  greetingUser.innerHTML = `Welcome, ${user.displayName}!`;
+  greetingUser.innerHTML = `Welcome, ${user.email}!`;
 
   /* const hamburgerMenuContent = document.createElement('ul');
   hamburgerMenuContent.classList.add('menu');
@@ -190,6 +202,12 @@ export const home = () => {
   meanwhileButton.classList.add('meanWhile');
   meanwhileButton.innerHTML = 'Log Out';
   meanwhileButton.addEventListener('click', () => {
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      console.log('Se supone que se cerró sesión')
+    }).catch((error) => {
+      // An error happened.
+    });
     onNavigate('/');
   });
 
