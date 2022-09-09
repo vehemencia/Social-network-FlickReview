@@ -1,4 +1,4 @@
-import { onNavigate } from '../main.js';
+import { onNavigate, userEmailForDOM } from '../main.js';
 
 export const home = () => {
   const divAllHome = document.createElement('div');
@@ -29,7 +29,8 @@ export const home = () => {
 
   const greetingUser = document.createElement('h2');
   greetingUser.setAttribute('id', 'greetingUserText');
-  greetingUser.innerHTML = 'Welcome!';
+  console.log(userEmailForDOM);
+  greetingUser.innerHTML = `Welcome, ${userEmailForDOM}!`;
 
   /* const hamburgerMenuContent = document.createElement('ul');
   hamburgerMenuContent.classList.add('menu');
@@ -202,6 +203,5 @@ export const home = () => {
 
   // eslint-disable-next-line max-len
   divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, articlePublishedReview, meanWhileDiv);
-
   return divAllHome;
 };
