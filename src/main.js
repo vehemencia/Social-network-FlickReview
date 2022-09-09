@@ -17,9 +17,6 @@ const routes = {
   '/profile': profile,
 };
 
-export let userEmailForDOM = [];
-//console.log(userEmailForDOM)
-
 // function for changing nodes according to route
 export const onNavigate = (pathname) => {
   window.history.pushState(
@@ -32,8 +29,6 @@ export const onNavigate = (pathname) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      userEmailForDOM.push(user.email);
     } else {
       window.location.origin + '/'
     }
@@ -57,6 +52,3 @@ window.onpopstate = () => {
 
 // append content of layout to main div
 rootMain.appendChild(component());
-
-export const auth = getAuth();
-export const user = auth.currentUser;

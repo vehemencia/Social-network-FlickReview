@@ -1,6 +1,10 @@
 import { onNavigate, userEmailForDOM } from '../main.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 export const home = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+
   const divAllHome = document.createElement('div');
 
   const bodyTag = document.querySelector('body');
@@ -29,8 +33,7 @@ export const home = () => {
 
   const greetingUser = document.createElement('h2');
   greetingUser.setAttribute('id', 'greetingUserText');
-  console.log(userEmailForDOM);
-  greetingUser.innerHTML = `Welcome, ${userEmailForDOM}!`;
+  greetingUser.innerHTML = `Welcome, ${user.displayName}!`;
 
   /* const hamburgerMenuContent = document.createElement('ul');
   hamburgerMenuContent.classList.add('menu');
