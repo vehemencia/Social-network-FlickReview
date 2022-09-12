@@ -296,7 +296,7 @@ span:hover {
 /* Create post box*/
 
 #createpostBox {
-    height: 10.5rem;
+    height: auto;
     width: 32rem;
     background-color: var(--colorBlue);
     color: var(--colorWhite);
@@ -626,7 +626,6 @@ h3 {
     /*Create Post Box*/
 
     #createpostBox {
-        height: 15rem;
         width: 60rem;
         margin: 5rem 36rem 2rem 36rem;
         padding: 2rem;

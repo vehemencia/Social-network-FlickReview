@@ -39,3 +39,10 @@ export function validateLogin(mail, password) {
     return true;
   }
 }
+
+export function cleaningReviewBox(titleBox, reviewBox) {
+  if (titleBox.value !== "" && reviewBox.value !== "") {
+    titleBox.value = "";
+    reviewBox.value = "";
+  }
+}

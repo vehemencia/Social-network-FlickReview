@@ -1,29 +1,19 @@
 import { onNavigate } from '../main.js';
+import { messageDisplayError, cleaningReviewBox, removeErrorMessage } from '../lib/general.js';
 import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
-import { db } from '../lib/config.js'
+import { collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+import { addReview } from '../lib/reviews.js'
 
 export const home = () => {
-  try {
-    const docRef = addDoc(collection(db, "reviewsExamples"), {
-      title: "A Bugs Life",
-      review: "Good movie 10/10",
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
-  }
-
   const auth = getAuth();
   const user = auth.currentUser;
-console.log(user)
+  console.log(user)
   const divAllHome = document.createElement('div');
 
   const bodyTag = document.querySelector('body');
   bodyTag.style.backgroundImage = 'none';
 
   // Creation of DOM Elements of Header
-
   const profileHeader = document.createElement('header');
   profileHeader.setAttribute('id', 'homeHeader');
 
@@ -84,11 +74,9 @@ console.log(user)
   shareReviewButton.innerHTML = 'Share';
 
   // Insert elements in Section tag
-
   profileSection.append(movieWatchedInput, movieReviewInput, shareReviewButton);
 
   // Creation of DOM elements that divide share review from published reviews
-
   const reviewsDiv = document.createElement('div');
   reviewsDiv.setAttribute('id', 'reviewsText');
 
@@ -99,11 +87,9 @@ console.log(user)
   reviewsLine.setAttribute('id', 'reviewsLine');
 
   // Insert elements in reviews div
-
   reviewsDiv.append(reviewsText, reviewsLine);
 
   //  Creation of DOM elements of article
-
   const articlePublishedReview = document.createElement('article');
   articlePublishedReview.setAttribute('id', 'reviewBox');
 
@@ -160,7 +146,6 @@ console.log(user)
 
   const paragraphReview = document.createElement('p');
   paragraphReview.setAttribute('id', 'writtenreview');
-  // eslint-disable-next-line max-len
   paragraphReview.innerHTML = 'Loren ipsum :3 idufudsfsgdgd idufudsf sgdgd idufudsfsgdgdidu fudsfsgdgd idufudsfsgdgd fdgdfv lorem lorem hdgsgds ydgsyfgydgyf ydsyyfsg very good movie 100 starsstarsstarsstars starsstars starsstars starsstars';
 
   const heartVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -181,11 +166,9 @@ console.log(user)
   pathHeartVector.setAttribute('fill', 'none');
 
   const pathTwoHeartVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  // eslint-disable-next-line max-len
   pathTwoHeartVector.setAttribute('d', 'M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572');
 
   //  Insert elements in article tag
-
   heartVector.append(pathHeartVector, pathTwoHeartVector);
   // eslint-disable-next-line max-len
   dotsVector.append(pathdotsVector, dotsVectorCircleOne, dotsVectorCircleTwo, dotsVectorCircleThree);
@@ -194,7 +177,6 @@ console.log(user)
   articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);
 
   // until we add functionality to hamburger menu
-
   const meanWhileDiv = document.createElement('div');
   meanWhileDiv.setAttribute('id', 'meanWhileDiv');
 
@@ -219,10 +201,18 @@ console.log(user)
   });
 
   meanWhileDiv.append(meanwhileButtonTwo, meanwhileButton);
-
   // insertion of all content in home div
-
   // eslint-disable-next-line max-len
   divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, articlePublishedReview, meanWhileDiv);
+
+  shareReviewButton.addEventListener('click', async() => {
+    if (typeMovie.value === "" || typeReview.value === "") {
+      messageDisplayError('Please complete all fields before submitting your review', 'createpostBox', 'shareReviewButton');
+      setTimeout(removeErrorMessage, 3000);
+    } else {
+      await addReview(typeMovie, typeReview, user);
+      cleaningReviewBox(typeMovie, typeReview);
+    }
+  })
   return divAllHome;
 };
