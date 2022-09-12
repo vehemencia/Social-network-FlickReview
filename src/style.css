@@ -374,7 +374,7 @@ h3 {
 
 /*Published Post*/
 
-#reviewBox {
+.reviewBox {
     height: auto;
     width: 32rem;
     background-color: var(--colorBlue);
@@ -388,7 +388,7 @@ h3 {
     font-family: var(--principalFont);
 }
 
-#womanprofileimg {
+.womanprofileimg {
     width: 3.2rem;
     height: 3.2rem;
     border-radius: 50rem;
@@ -396,18 +396,18 @@ h3 {
     border: 0.1rem solid var(--colorWhite);
 }
 
-#generalinfo {
+.generalinfo {
     width: 30rem;
     display: flex;
     justify-content: space-between;
 }
 
-#userAndMovieInfo {
+.userAndMovieInfo {
     width: 22rem;
     justify-items: flex-start;
 }
 
-#writtenreview {
+.writtenreview {
     max-width: 25rem;
     text-align: justify;
     margin-top: 1rem;
@@ -415,11 +415,11 @@ h3 {
     line-height: 1.6;
 }
 
-#userNameHome {
+.userNameHome {
     font-size: 1.5rem;
 }
 
-#movieNameHome {
+.movieNameHome {
     font-size: 1rem;
     margin-top: 0.2rem;
 }
@@ -530,39 +530,39 @@ h3 {
 
     /*Published Post*/
 
-    #reviewBox {
+    .reviewBox {
         height: auto;
         width: 52rem;
         margin: 5rem 12rem;
         padding: 2rem;
     }
 
-    #womanprofileimg {
+    .womanprofileimg {
         width: 6.4rem;
         height: 6.4rem;
         border-radius: 50rem;
         border: 0.2rem solid var(--colorWhite);
     }
 
-    #generalinfo {
+    .generalinfo {
         width: 48.5rem;
     }
 
-    #userAndMovieInfo {
+    .userAndMovieInfo {
         width: 35rem;
     }
 
-    #writtenreview {
+    .writtenreview {
         max-width: 45rem;
         margin-top: 1.5rem;
         font-size: 2rem;
     }
 
-    #userNameHome {
+    .userNameHome {
         font-size: 3rem;
     }
 
-    #movieNameHome {
+    .movieNameHome {
         font-size: 2rem;
         margin-top: 0.5rem;
     }
@@ -664,32 +664,32 @@ h3 {
 
     /*Published Post*/
 
-    #reviewBox {
+    .reviewBox {
         height: auto;
         width: 60rem;
         margin: 2rem 36rem;
         padding: 2rem;
     }
 
-    #generalinfo {
+    .generalinfo {
         width: 56rem;
     }
 
-    #userAndMovieInfo {
+    .userAndMovieInfo {
         width: 44rem;
     }
 
-    #writtenreview {
+    .writtenreview {
         max-width: 53rem;
         margin-top: 1rem;
         font-size: 1.5rem;
     }
 
-    #userNameHome {
+    .userNameHome {
         font-size: 2.2rem;
     }
 
-    #movieNameHome {
+    .movieNameHome {
         font-size: 1.7rem;
         margin-top: 0.5rem;
     }
