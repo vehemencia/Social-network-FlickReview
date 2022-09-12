@@ -1,17 +1,19 @@
-import { collection, addDoc, getDoc, getDocs, serverTimestamp, doc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
-import { db } from './config.js'
+import {
+  collection, addDoc, getDoc, getDocs, serverTimestamp, doc,
+} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+import { db } from './config.js';
 
 // Add a new document with a generated id.
 export const addReview = async (movieInput, reviewInput, user) => {
-  const docRef = await addDoc(collection(db, "reviews"), {
+  const docRef = await addDoc(collection(db, 'reviews'), {
     wroteByUser: user.email,
     title: movieInput.value,
     review: reviewInput.value,
     likedBy: [],
-    timeOfPublication: serverTimestamp()
-  })
-  console.log(docRef.id)
-}
+    timeOfPublication: serverTimestamp(),
+  });
+  console.log(docRef.id);
+};
 
 //  Create review box
 export function createReviewBox(user, typeMovie, typeReview) {
@@ -100,12 +102,12 @@ export function createReviewBox(user, typeMovie, typeReview) {
   generalInfoDiv.append(userImage, userMovieInfo, dotsVector);
   articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);
 
-  return articlePublishedReview
+  return articlePublishedReview;
 }
 
 export const getReviewsDocuments = async () => {
-  const response = await getDocs(collection(db, "reviews"));
-  response.forEach(element => {
-    console.log(element.data())
+  const response = await getDocs(collection(db, 'reviews'));
+  response.forEach((element) => {
+    console.log(element.data());
   });
-}
+};
