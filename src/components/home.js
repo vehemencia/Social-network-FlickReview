@@ -1,7 +1,8 @@
 import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { messageDisplayError, cleaningReviewBox, removeErrorMessage } from '../lib/general.js';
-import { addReview, getReviewsDocuments } from '../lib/reviews.js';
+import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { addReview, createReviewBox } from '../lib/reviews.js'
 
 export const home = () => {
   const auth = getAuth();
@@ -115,7 +116,9 @@ export const home = () => {
   meanWhileDiv.append(meanwhileButtonTwo, meanwhileButton);
   // insertion of all content in home div
   // eslint-disable-next-line max-len
-  divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, meanWhileDiv);
+  (async () => {
+    divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, await createReviewBox(), meanWhileDiv)
+  })();
 
   shareReviewButton.addEventListener('click', async () => {
     if (typeMovie.value === '' || typeReview.value === '') {
@@ -125,7 +128,6 @@ export const home = () => {
       await addReview(typeMovie, typeReview, user);
       cleaningReviewBox(typeMovie, typeReview);
     }
-  });
-  getReviewsDocuments();
+  })
   return divAllHome;
 };
