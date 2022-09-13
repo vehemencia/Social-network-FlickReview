@@ -54,19 +54,27 @@ export const register = () => {
   const createUsernameSection = document.createElement('input');
   createUsernameSection.setAttribute('id', 'createusername');
   createUsernameSection.setAttribute('type', 'text');
-  createUsernameSection.setAttribute('placeholder', 'Tell us your full name');
+  const nameLabel = document.createElement('p');
+  nameLabel.setAttribute('class', 'labels');
+  nameLabel.innerHTML = 'Name';
   const inputEmailSection = document.createElement('input');
   inputEmailSection.setAttribute('id', 'inputemail');
   inputEmailSection.setAttribute('type', 'email');
-  inputEmailSection.setAttribute('placeholder', 'write your e-mail');
+  const mailLabel = document.createElement('p');
+  mailLabel.setAttribute('class', 'labels');
+  mailLabel.innerHTML = 'Mail';
   const createPasswordSection = document.createElement('input');
   createPasswordSection.setAttribute('id', 'createpass');
   createPasswordSection.setAttribute('type', 'password');
-  createPasswordSection.setAttribute('placeholder', 'choose your password');
+  const passwordOneLabel = document.createElement('p');
+  passwordOneLabel.setAttribute('class', 'labels');
+  passwordOneLabel.innerHTML = 'Choose a password';
   const confirmPasswordSection = document.createElement('input');
   confirmPasswordSection.setAttribute('id', 'confirmpass');
   confirmPasswordSection.setAttribute('type', 'password');
-  confirmPasswordSection.setAttribute('placeholder', 'confirm your password');
+  const passwordTwoLabel = document.createElement('p');
+  passwordTwoLabel.setAttribute('class', 'labels');
+  passwordTwoLabel.innerHTML = 'Confirm your password';
 
   const registerButtonsDiv = document.createElement('div');
   registerButtonsDiv.setAttribute('id', 'registerButtons');
@@ -112,7 +120,7 @@ export const register = () => {
   registerButtonsDiv.append(termsDiv, registerButtonSection, sectionFirstParr, sectionGoogleLog, secondParagraphSection);
   // Insert DIV and others tags in DIV MAIN
   // eslint-disable-next-line max-len
-  sectionDivMain.append(sectionTitle, createUsername, inputEmail, createPassword, confirmPassword, registerButtonsDiv);
+  sectionDivMain.append(sectionTitle, nameLabel, createUsername, mailLabel, inputEmail, passwordOneLabel, createPassword, passwordTwoLabel, confirmPassword, registerButtonsDiv);
   // Insert Div section in Section Tag
   registerSection.appendChild(sectionDivMain);
 
