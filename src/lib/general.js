@@ -17,10 +17,10 @@ export function registerValidation(user, mail, choosenPassword, confirmedPasswor
   if (user === '' || mail === '' || choosenPassword === '' || confirmedPassword === '' || terms === false) {
     messageDisplayError('Please, complete all fields', 'registerButtons', 'showtimeButton');
     return false;
-  } else if (choosenPassword !== confirmedPassword) {
+  } if (choosenPassword !== confirmedPassword) {
     messageDisplayError('Password does not match', 'registerButtons', 'showtimeButton');
     return false;
-  } else if (choosenPassword.length < 6 && confirmedPassword.length < 6 ) {
+  } if (choosenPassword.length < 6 && confirmedPassword.length < 6) {
     messageDisplayError('Password must be at least 6 characters long', 'registerButtons', 'showtimeButton');
   } else {
     return true;
@@ -32,17 +32,16 @@ export function removeErrorMessage() {
 }
 
 export function validateLogin(mail, password) {
-  if (mail === '' || password === ''){
+  if (mail === '' || password === '') {
     messageDisplayError('Please, complete all fields', 'logInButtons', 'logInButton');
     return false;
-  } else {
-    return true;
   }
+  return true;
 }
 
 export function cleaningReviewBox(titleBox, reviewBox) {
-  if (titleBox.value !== "" && reviewBox.value !== "") {
-    titleBox.value = "";
-    reviewBox.value = "";
+  if (titleBox.value !== '' && reviewBox.value !== '') {
+    titleBox.value = '';
+    reviewBox.value = '';
   }
 }
