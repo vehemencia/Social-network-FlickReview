@@ -5,6 +5,7 @@ import { db } from './config.js'
 export const addReview = async (movieInput, reviewInput, user) => {
   const docRef = await addDoc(collection(db, "reviews"), {
     wroteByUser: user.email,
+    userDisplayName: user.displayName,
     title: movieInput.value,
     review: reviewInput.value,
     likedBy: [],
@@ -27,8 +28,8 @@ export const getReviewsDocuments = async () => {
 //  Create review box
 export const createReviewBox = async () => {
   const reciveData = await getReviewsDocuments();
-  console.log(reciveData);
-  const printingDom = reciveData.map(obj => {
+  const content = document.createElement('section');
+  const printingDom = reciveData.forEach(obj => {
     console.log(obj.title)
     const articlePublishedReview = document.createElement('article');
     articlePublishedReview.setAttribute('class', 'reviewBox');
@@ -114,7 +115,8 @@ export const createReviewBox = async () => {
     userMovieInfo.append(userName, movieName);
     generalInfoDiv.append(userImage, userMovieInfo, dotsVector);
     articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);
+    
+    content.append(articlePublishedReview)
   })
-  console.log(printingDom)
-  return printingDom
+  return content
 }
