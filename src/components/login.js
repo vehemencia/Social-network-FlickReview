@@ -1,4 +1,6 @@
-import { getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import {
+  getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
+} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { wrongPassword, removeErrorMessage, validateLogin } from '../lib/general.js';
 
@@ -94,13 +96,13 @@ export const logIn = () => {
     const loginData = validateLogin(sectionInputUserName.value, sectionInputPass.value);
     if (loginData == false) {
       return setTimeout(removeErrorMessage, 3000);
-    } else {
+    }
     const auth = getAuth();
     signInWithEmailAndPassword(auth, sectionInputUserName.value, sectionInputPass.value)
       .then((userCredential) => {
       // Signed in
         const user = userCredential.user;
-        console.log(user)
+        console.log(user);
         onNavigate('/home');
       })
       .catch((error) => {
@@ -109,7 +111,6 @@ export const logIn = () => {
         wrongPassword();
         setTimeout(removeErrorMessage, 3000);
       });
-    };
   });
 
   sectionGoogleLog.addEventListener('click', () => {
@@ -134,7 +135,7 @@ export const logIn = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
-  })
+  });
 
   sectionSpanParr.addEventListener('click', () => {
     onNavigate('/register');

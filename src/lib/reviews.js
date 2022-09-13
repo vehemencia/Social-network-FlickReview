@@ -1,36 +1,43 @@
-import { collection, addDoc, getDoc, getDocs, serverTimestamp, doc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
-import { db } from './config.js'
+import {
+  collection, addDoc, getDocs, serverTimestamp, /*onSnapshot*/
+} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+import { db } from './config.js';
 
 // Add a new document with a generated id.
 export const addReview = async (movieInput, reviewInput, user) => {
-  const docRef = await addDoc(collection(db, "reviews"), {
+  const docRef = await addDoc(collection(db, 'reviews'), {
     wroteByUser: user.email,
     userDisplayName: user.displayName,
     title: movieInput.value,
     review: reviewInput.value,
     likedBy: [],
-    timeOfPublication: serverTimestamp()
-  })
-  console.log(docRef.id)
-}
+    timeOfPublication: serverTimestamp(),
+  });
+};
 
 export const getReviewsDocuments = async () => {
-  const response = await getDocs(collection(db, "reviews"));
+  const response = await getDocs(collection(db, 'reviews'));
   const dataArray = [];
-  response.forEach(element => {
-    //console.log (element.data().review);
+  response.forEach((element) => {
+    // console.log (element.data().review);
     const saveData = element.data();
     dataArray.push(saveData);
   });
   return dataArray;
-}
+};
+
+// export const showingChanges = () => {
+//   const changesDB = onSnapshot(collection(db, 'reviews'), (doc) => {
+//     console.log('actualiza', doc);
+//   });
+// };
 
 //  Create review box
 export const createReviewBox = async () => {
   const reciveData = await getReviewsDocuments();
   const content = document.createElement('section');
-  const printingDom = reciveData.forEach(obj => {
-    console.log(obj.title)
+  reciveData.forEach((obj) => {
+    console.log(obj.title);
     const articlePublishedReview = document.createElement('article');
     articlePublishedReview.setAttribute('class', 'reviewBox');
 
@@ -115,8 +122,8 @@ export const createReviewBox = async () => {
     userMovieInfo.append(userName, movieName);
     generalInfoDiv.append(userImage, userMovieInfo, dotsVector);
     articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);
-    
-    content.append(articlePublishedReview)
-  })
-  return content
-}
+
+    content.append(articlePublishedReview);
+  });
+  return content;
+};

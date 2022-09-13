@@ -254,7 +254,7 @@ span:hover {
     width: auto;
     background-color: var(--colorBlue);
     background-image: url(./images/headerHomeImg.png);
-    background-size: 200%;
+    background-size: 210%;
     background-position: center bottom;
 }
 
@@ -317,7 +317,7 @@ span:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 1rem;
+    padding: 1rem;
 }
 
 #typeMovie,
@@ -1049,7 +1049,7 @@ h3 {
     background-color: red;
     font-size: 1rem;
     font-family: var(--principalFont);
-    margin-bottom: 0.5rem;
+    margin: 0.5rem;
     border-radius: 0.5rem;
     padding: 1rem;
 }
