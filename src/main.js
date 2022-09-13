@@ -1,10 +1,10 @@
 // Import functions that show/append nodes
+import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { home } from './components/home.js';
 import { profile } from './components/profile.js';
 import { logIn } from './components/login.js';
 import { register } from './components/register.js';
 import { app } from './lib/config.js';
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 
 // save main box content in a variable
 const rootMain = document.querySelector('#root');
@@ -24,15 +24,6 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-    } else {
-      window.location.origin + '/'
-    }
-  });
   while (rootMain.firstChild) {
     rootMain.removeChild(rootMain.firstChild);
   }
@@ -49,6 +40,16 @@ window.onpopstate = () => {
   }
   rootMain.append(component());
 };
+
+const auth = getAuth();
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    onNavigate('/home');
+  } else {
+    onNavigate('/');
+  }
+});
 
 // append content of layout to main div
 rootMain.appendChild(component());
