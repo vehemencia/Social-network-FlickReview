@@ -1,12 +1,14 @@
 import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { messageDisplayError, cleaningReviewBox, removeErrorMessage } from '../lib/general.js';
-import { addReview, createReviewBox } from '../lib/reviews.js';
+import { addReview, createReviewBox /*showingChanges*/ } from '../lib/reviews.js';
 
 export const home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user);
+
+  // showingChanges();
+
   const divAllHome = document.createElement('div');
 
   const bodyTag = document.querySelector('body');
