@@ -48,6 +48,12 @@ header {
 
 /*login box section*/
 
+.labels {
+    font-family: var(--principalFont);
+    color: var(--colorWhite);
+    font-size: 1rem;
+}
+
 #sectionLogIn,
 #registerSection {
     display: flex;
@@ -67,6 +73,7 @@ header {
     font-family: var(--principalFont);
     font-size: 3rem;
     color: var(--colorWhite);
+    margin-bottom: 0.5rem;
 }
 
 .inputBox {
@@ -178,6 +185,11 @@ span:hover {
     #logInText {
         font-size: 4rem;
         margin-top: -1rem;
+        margin-bottom: 2rem;
+    }
+
+    .labels {
+        font-size: 2rem;
     }
 
     .inputBox {
@@ -416,7 +428,7 @@ h3 {
 }
 
 .userNameHome {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
 }
 
 .movieNameHome {
@@ -942,7 +954,7 @@ h3 {
     width: 30rem;
     height: auto;
     border-radius: 2rem;
-    margin: 8rem 0;
+    margin: 5rem 0;
     padding: 2rem;
 }
 
@@ -950,6 +962,7 @@ h3 {
     font-family: var(--principalFont);
     font-size: 3rem;
     color: var(--colorWhite);
+    margin-bottom: 0.5rem;
 }
 
 #createusername,

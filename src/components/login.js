@@ -43,14 +43,18 @@ export const logIn = () => {
   const sectionCanvasPinkTwo = document.createElement('canvas');
   sectionCanvasPinkTwo.classList.add('pinkBox');
 
+  const emailLabel = document.createElement('p');
+  emailLabel.setAttribute('class', 'labels');
+  emailLabel.innerHTML = 'Email';
   const sectionInputUserName = document.createElement('input');
   sectionInputUserName.setAttribute('id', 'userName');
   sectionInputUserName.setAttribute('type', 'email');
-  sectionInputUserName.setAttribute('placeholder', 'email');
+  const passwordLabel = document.createElement('p');
+  passwordLabel.setAttribute('class', 'labels');
+  passwordLabel.innerHTML = 'Password';
   const sectionInputPass = document.createElement('input');
   sectionInputPass.setAttribute('id', 'userPass');
   sectionInputPass.setAttribute('type', 'password');
-  sectionInputPass.setAttribute('placeholder', 'password');
 
   const sectionDivButtons = document.createElement('div');
   sectionDivButtons.setAttribute('id', 'logInButtons');
@@ -81,7 +85,7 @@ export const logIn = () => {
   // Insert children of logInButtons
   sectionDivButtons.append(sectionButtonLog, sectionFirstParr, sectionGoogleLog, sectionSecondParr);
   // Insert Div and others tags in Div Main
-  sectionDivMain.append(sectionTitle, sectionDivInputUser, sectionDivInputPass, sectionDivButtons);
+  sectionDivMain.append(sectionTitle, emailLabel, sectionDivInputUser, passwordLabel, sectionDivInputPass, sectionDivButtons);
   // Insert Div section in Section Tag
   sectionLogIn.appendChild(sectionDivMain);
 
