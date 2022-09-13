@@ -1,5 +1,7 @@
 /* eslint-disable max-len */
-import { getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import {
+  getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup,
+} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { registerValidation, removeErrorMessage, messageDisplayError } from '../lib/general.js';
 
@@ -126,7 +128,7 @@ export const register = () => {
 
   acceptTermsText.addEventListener('click', () => {
     window.open('https://en.wikipedia.org/wiki/Terms_of_service', 'Terms and conditions');
-  })
+  });
 
   // Add Event to button Showtime!
   registerButtonSection.addEventListener('click', () => {
@@ -150,7 +152,7 @@ export const register = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          if (errorMessage === "Firebase: Error (auth/email-already-in-use).") {
+          if (errorMessage === 'Firebase: Error (auth/email-already-in-use).') {
             messageDisplayError('This email already has an account', 'registerButtons', 'showtimeButton');
             setTimeout(removeErrorMessage, 3000);
           }
@@ -180,7 +182,7 @@ export const register = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
-  })
+  });
 
   secondParagraphSection.addEventListener('click', () => {
     onNavigate('/');

@@ -1,12 +1,12 @@
+import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { messageDisplayError, cleaningReviewBox, removeErrorMessage } from '../lib/general.js';
-import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
-import { addReview, createReviewBox } from '../lib/reviews.js'
+import { addReview, createReviewBox } from '../lib/reviews.js';
 
 export const home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
-  console.log(user)
+  console.log(user);
   const divAllHome = document.createElement('div');
 
   const bodyTag = document.querySelector('body');
@@ -98,7 +98,7 @@ export const home = () => {
   meanwhileButton.addEventListener('click', () => {
     signOut(auth).then(() => {
       // Sign-out successful.
-      console.log('Se supone que se cerró sesión')
+      console.log('Se supone que se cerró sesión');
     }).catch((error) => {
       // An error happened.
     });
@@ -116,17 +116,17 @@ export const home = () => {
   // insertion of all content in home div
   // eslint-disable-next-line max-len
   (async () => {
-    divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, await createReviewBox(), meanWhileDiv)
+    divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, await createReviewBox(), meanWhileDiv);
   })();
 
   shareReviewButton.addEventListener('click', async () => {
-    if (typeMovie.value === "" || typeReview.value === "") {
+    if (typeMovie.value === '' || typeReview.value === '') {
       messageDisplayError('Please complete all fields before submitting your review', 'createpostBox', 'shareReviewButton');
       setTimeout(removeErrorMessage, 3000);
     } else {
       await addReview(typeMovie, typeReview, user);
       cleaningReviewBox(typeMovie, typeReview);
     }
-  })
+  });
   return divAllHome;
 };
