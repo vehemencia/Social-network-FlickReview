@@ -28,7 +28,7 @@ export const getReviewsDocuments = async () => {
 export const createReviewBox = async () => {
   const reciveData = await getReviewsDocuments();
   console.log(reciveData);
-  reciveData.forEach(obj => {
+  const printingDom = reciveData.map(obj => {
     console.log(obj.title)
     const articlePublishedReview = document.createElement('article');
     articlePublishedReview.setAttribute('class', 'reviewBox');
@@ -114,8 +114,7 @@ export const createReviewBox = async () => {
     userMovieInfo.append(userName, movieName);
     generalInfoDiv.append(userImage, userMovieInfo, dotsVector);
     articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);
-
-    return articlePublishedReview
-
   })
+  console.log(printingDom)
+  return printingDom
 }
