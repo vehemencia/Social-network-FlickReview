@@ -1,7 +1,7 @@
-import { getAuth, signOut } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { getAuth, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { messageDisplayError, cleaningReviewBox, removeErrorMessage } from '../lib/general.js';
-import { addReview, createReviewBox /*showingChanges*/ } from '../lib/reviews.js';
+import { addReview, createReviewBox } from '../lib/reviews.js';
 
 export const home = () => {
   const auth = getAuth();
@@ -36,7 +36,14 @@ export const home = () => {
 
   const greetingUser = document.createElement('h2');
   greetingUser.setAttribute('id', 'greetingUserText');
-  greetingUser.innerHTML = `Welcome, ${user.email}!`;
+
+   onAuthStateChanged(auth, (user) => {
+    if (user.displayName !== null) {
+     greetingUser.innerHTML = `Welcome, ${user.displayName}!`;
+    } else {
+      greetingUser.innerHTML = `Welcome, your account was created successfully!`;
+    }
+  });
 
   /* const hamburgerMenuContent = document.createElement('ul');
   hamburgerMenuContent.classList.add('menu');
@@ -99,8 +106,7 @@ export const home = () => {
   meanwhileButton.innerHTML = 'Log Out';
   meanwhileButton.addEventListener('click', () => {
     signOut(auth).then(() => {
-      // Sign-out successful.
-      console.log('Se supone que se cerró sesión');
+      // Sign-out successful
     }).catch((error) => {
       // An error happened.
     });
@@ -118,8 +124,9 @@ export const home = () => {
   // insertion of all content in home div
   // eslint-disable-next-line max-len
   (async () => {
-    divAllHome.append(profileHeader, greetingUser, profileSection, reviewsDiv, await createReviewBox(), meanWhileDiv);
+    divAllHome.append(profileHeader, await greetingUser, profileSection, reviewsDiv, await createReviewBox(), meanWhileDiv);
   })();
+  console.log(greetingUser);
 
   shareReviewButton.addEventListener('click', async () => {
     if (typeMovie.value === '' || typeReview.value === '') {
