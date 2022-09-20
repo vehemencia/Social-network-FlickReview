@@ -23,12 +23,15 @@ export const createReviewBox = () => {
   const content = document.createElement('section');
   content.setAttribute('id', 'reviewsSection');
   onSnapshot(q, (querySnapshot) => {
+    if (content.childElementCount > 0) {
+      content.replaceChildren();
+    }
     const elementos = [];
     querySnapshot.forEach((doc) => {
       elementos.push(doc.data());
     });
-
-    elementos.forEach((obj) => {
+    const eliminateRepeatedElements = new Set(elementos);
+    eliminateRepeatedElements.forEach((obj) => {
       const articlePublishedReview = document.createElement('article');
       articlePublishedReview.setAttribute('class', 'reviewBox');
 
