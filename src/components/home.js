@@ -129,9 +129,6 @@ export const home = () => {
       await addReview(typeMovie, typeReview, user);
       cleaningReviewBox(typeMovie, typeReview);
     }
-    while (document.querySelector('#reviewsSection').firstChild) {
-      document.querySelector('#reviewsSection').removeChild(document.querySelector('#reviewsSection').firstChild);
-    }
   });
   return divAllHome;
 };
