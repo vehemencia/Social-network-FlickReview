@@ -26,11 +26,11 @@ export const createReviewBox = () => {
     if (content.childElementCount > 0) {
       content.replaceChildren();
     }
-    const elementos = [];
+    const elements = [];
     querySnapshot.forEach((doc) => {
-      elementos.push(doc.data());
+      elements.push(doc.data());
     });
-    const eliminateRepeatedElements = new Set(elementos);
+    const eliminateRepeatedElements = new Set(elements);
     eliminateRepeatedElements.forEach((obj) => {
       const articlePublishedReview = document.createElement('article');
       articlePublishedReview.setAttribute('class', 'reviewBox');
@@ -48,7 +48,7 @@ export const createReviewBox = () => {
 
       const userName = document.createElement('h3');
       userName.setAttribute('class', 'userNameHome');
-      userName.innerHTML = `${obj.wroteByUser}`;
+      userName.innerHTML = `${obj.userDisplayName}`;
 
       const movieName = document.createElement('h4');
       movieName.setAttribute('class', 'movieNameHome');

@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import {
-  getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup,
+  getAuth, createUserWithEmailAndPassword, sendEmailVerification, GoogleAuthProvider, signInWithPopup, updateProfile,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
 import { registerValidation, removeErrorMessage, messageDisplayError } from '../lib/general.js';
@@ -142,11 +142,12 @@ export const register = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          onNavigate('/home');
-          sendEmailVerification(auth.currentUser)
-            .then(() => {
-              // Email verification sent!
+          if (createUsernameSection.value !== '') {
+            updateProfile(auth.currentUser, {
+              displayName: createUsernameSection.value,
             });
+          }
+          onNavigate('/home');
         })
 
         .catch((error) => {
