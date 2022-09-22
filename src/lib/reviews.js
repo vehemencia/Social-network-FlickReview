@@ -1,7 +1,8 @@
 import {
-  collection, addDoc, serverTimestamp, /* onSnapshot */
+  collection, addDoc, serverTimestamp,
   query, onSnapshot, orderBy,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { db } from './config.js';
 
 const q = query(collection(db, 'reviews'), orderBy('timeOfPublication', 'desc'));
@@ -9,6 +10,7 @@ const q = query(collection(db, 'reviews'), orderBy('timeOfPublication', 'desc'))
 // Add a new document with a generated id.
 export const addReview = async (movieInput, reviewInput, user) => {
   const docRef = await addDoc(collection(db, 'reviews'), {
+    userId: user.uid,
     wroteByUser: user.email,
     userDisplayName: user.displayName,
     title: movieInput.value,
@@ -20,6 +22,8 @@ export const addReview = async (movieInput, reviewInput, user) => {
 
 //  Create review box
 export const createReviewBox = () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
   const content = document.createElement('section');
   content.setAttribute('id', 'reviewsSection');
   onSnapshot(q, (querySnapshot) => {
@@ -112,7 +116,25 @@ export const createReviewBox = () => {
 
       //  Insert elements in article tag
       heartVector.append(pathHeartVector, pathTwoHeartVector);
-      dotsVector.append(pathdotsVector, dotsVectorCircleOne, dotsVectorCircleTwo, dotsVectorCircleThree);
+      if (obj.userId === user.uid) {
+        dotsVector.append(pathdotsVector, dotsVectorCircleOne, dotsVectorCircleTwo, dotsVectorCircleThree);
+        dotsVector.addEventListener('click', ()=> {
+          const optionsDiv = document.createElement('div');
+          optionsDiv.setAttribute('class', 'optionsReviewDiv');
+
+          const editButton = document.createElement('button');
+          editButton.setAttribute('class', 'editButtons');
+          editButton.innerHTML = 'Edit'
+
+          const deleteButton = document.createElement('button');
+          deleteButton.setAttribute('class', 'deleteButtons');
+          deleteButton.innerHTML = 'Delete'
+          
+          generalInfoDiv.removeChild(dotsVector);
+          optionsDiv.append(editButton, deleteButton);
+          generalInfoDiv.append(optionsDiv);
+        })
+      }
       userMovieInfo.append(userName, movieName);
       generalInfoDiv.append(userImage, userMovieInfo, dotsVector);
       articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);

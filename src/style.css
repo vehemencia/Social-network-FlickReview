@@ -140,11 +140,11 @@ header {
     background-color: var(--colorBlue);
 }
 
-#googleImg:hover{
+#googleImg:hover {
     background-image: url('./images/btn_google_signin_dark_focus_web.png');
 }
 
-#googleImg:active{
+#googleImg:active {
     background-image: url('./images/btn_google_signin_dark_pressed_web.png');
 }
 
@@ -256,6 +256,8 @@ span:hover {
     background-image: url(./images/headerHomeImg.png);
     background-size: 210%;
     background-position: center bottom;
+    position: sticky;
+    top: 0;
 }
 
 #homeTitle {
@@ -331,11 +333,14 @@ span:hover {
 
 #typeMovie {
     height: 1.6rem;
+    padding-left: 0.5rem;
 }
 
 #typeReview {
-    height: 4.3rem;
+    height: 6rem;
     margin-top: 0.5rem;
+    padding: 0.5rem;
+    resize: none;
 }
 
 #shareReviewButton {
@@ -411,11 +416,11 @@ h3 {
 .generalinfo {
     width: 30rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .userAndMovieInfo {
-    width: 22rem;
+    width: 20rem;
     justify-items: flex-start;
 }
 
@@ -1060,7 +1065,7 @@ h3 {
     text-decoration: none;
 }
 
-#greetingUserText { 
+#greetingUserText {
     font-size: 2rem;
     font-family: var(--principalFont);
     color: var(--colorWhite);
@@ -1073,4 +1078,33 @@ h3 {
         font-size: 3.5rem;
         margin-top: 2rem;
     }
+}
+
+/* EDIT OPTIONS */
+
+.optionsReviewDiv{
+    display:flex;
+    flex-direction: column;
+    height: 3rem;
+    align-self: flex-end;
+}
+
+.editButtons{
+    width: 4.5rem;
+    height: 3rem;
+    background: var(--colorPink);
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 0.5rem 0.5rem 0 0;
+    font-size: 0.8rem;
+}
+
+.deleteButtons{
+    width: 4.5rem;
+    height: 3rem;
+    background: var(--colorBarnie);;
+    color: var(--colorWhite);
+    border: none;
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-size: 0.8rem;
 }

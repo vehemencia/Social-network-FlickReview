@@ -71,10 +71,11 @@ export const home = () => {
   movieWatchedInput.setAttribute('type', 'text');
   movieWatchedInput.setAttribute('placeholder', 'Which movie did you watched?');
 
-  const movieReviewInput = document.createElement('input');
+  const movieReviewInput = document.createElement('textarea');
   movieReviewInput.setAttribute('id', 'typeReview');
   movieReviewInput.setAttribute('type', 'text');
   movieReviewInput.setAttribute('placeholder', 'Write your review here...');
+  movieReviewInput.setAttribute('maxlength', '240');
 
   const shareReviewButton = document.createElement('button');
   shareReviewButton.setAttribute('id', 'shareReviewButton');
