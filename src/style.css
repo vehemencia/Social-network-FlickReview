@@ -323,7 +323,8 @@ span:hover {
 }
 
 #typeMovie,
-#typeReview {
+#typeReview,
+.typeReviewEdit {
     width: 30rem;
     border-radius: 0.5rem;
     border: none;
@@ -336,28 +337,46 @@ span:hover {
     padding-left: 0.5rem;
 }
 
-#typeReview {
+#typeReview,
+.typeReviewEdit {
     height: 6rem;
     margin-top: 0.5rem;
     padding: 0.5rem;
     resize: none;
 }
 
-#shareReviewButton {
+#shareReviewButton,
+.saveEdition,
+.cancelEdition {
     height: 1.6rem;
     margin-top: 0.5rem;
     background-color: var(--colorPink);
     border-radius: 0.5rem;
     border: none;
     color: var(--colorWhite);
-    margin-right: 1rem;
     margin-top: 0.8rem;
     align-self: flex-end;
     width: 6rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
-#shareReviewButton:hover {
+.editionDiv{
+    width: 15rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.saveEdition{
+    font-weight: bold;
+}
+.saveEdition,
+.cancelEdition{
+    align-self: center;
+}
+
+#shareReviewButton:hover,
+.saveEdition:hover,
+.cancelEdition:hover {
     cursor: pointer;
     background-color: var(--colorBarnie);
 }
@@ -1092,9 +1111,15 @@ h3 {
     height: auto;
 }
 
-.confirmDeleteButton{
+.deleteDiv{
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirmDeleteButton,
+.cancelDelete {
     margin-top: 0.5rem;
-    width:15rem;
+    width:14.5rem;
     height: 2rem;
     font-size: 1rem;
     align-self: center;
@@ -1103,4 +1128,8 @@ h3 {
     background-color: var(--colorBarnie);
     color: var(--colorWhite);
     font-weight: bold;
+}
+
+.cancelDelete{
+    width: 6.5rem;
 }
