@@ -58,41 +58,79 @@ export const createReviewBox = () => {
       movieName.setAttribute('class', 'movieNameHome');
       movieName.innerHTML = `${obj.title}`;
 
-      const dotsVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      dotsVector.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      dotsVector.classList.add('icon', 'icon-tabler', 'icon-tabler-dots');
-      dotsVector.setAttribute('width', '24');
-      dotsVector.setAttribute('heigth', '24');
-      dotsVector.setAttribute('viewBox', '0 0 24 24');
-      dotsVector.setAttribute('stroke-width', '1');
-      dotsVector.setAttribute('stroke', '#FEFFF1');
-      dotsVector.setAttribute('fill', 'none');
-      dotsVector.setAttribute('stroke-linecap', 'round');
-      dotsVector.setAttribute('stroke-linejoin', 'round');
+      const editVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      editVector.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      editVector.classList.add('icon', 'icon-tabler', 'icon-tabler-edit');
+      editVector.setAttribute('width', '18');
+      editVector.setAttribute('heigth', '18');
+      editVector.setAttribute('viewBox', '0 0 24 24');
+      editVector.setAttribute('stroke-width', '1.5');
+      editVector.setAttribute('stroke', '#FEFFF1');
+      editVector.setAttribute('fill', 'none');
+      editVector.setAttribute('stroke-linecap', 'round');
+      editVector.setAttribute('stroke-linejoin', 'round');
 
-      const pathdotsVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      pathdotsVector.setAttribute('stroke', 'none');
-      pathdotsVector.setAttribute('d', 'M0 0h24v24H0z');
-      pathdotsVector.setAttribute('fill', 'none');
+      const pathEditVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathEditVector.setAttribute('stroke', 'none');
+      pathEditVector.setAttribute('d', 'M0 0h24v24H0z');
+      pathEditVector.setAttribute('fill', 'none');
 
-      const dotsVectorCircleOne = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      dotsVectorCircleOne.setAttribute('cx', '5');
-      dotsVectorCircleOne.setAttribute('cy', '12');
-      dotsVectorCircleOne.setAttribute('r', '1');
+      const pathEditVectorTwo = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathEditVectorTwo.setAttribute('d', 'M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3');
 
-      const dotsVectorCircleTwo = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      dotsVectorCircleTwo.setAttribute('cx', '12');
-      dotsVectorCircleTwo.setAttribute('cy', '12');
-      dotsVectorCircleTwo.setAttribute('r', '1');
+      const pathEditVectorThree = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathEditVectorThree.setAttribute('d', 'M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3');
 
-      const dotsVectorCircleThree = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      dotsVectorCircleThree.setAttribute('cx', '19');
-      dotsVectorCircleThree.setAttribute('cy', '12');
-      dotsVectorCircleThree.setAttribute('r', '1');
+      const lineForVector = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      lineForVector.setAttribute('x1', '16');
+      lineForVector.setAttribute('y1', '5');
+      lineForVector.setAttribute('x2', '19');
+      lineForVector.setAttribute('y2', '8');
 
       const paragraphReview = document.createElement('p');
       paragraphReview.setAttribute('class', 'writtenreview');
       paragraphReview.innerHTML = `${obj.review}`;
+
+      const deleteVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      deleteVector.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      deleteVector.classList.add('icon', 'icon-tabler', 'icon-tabler-trash');
+      deleteVector.setAttribute('width', '18');
+      deleteVector.setAttribute('heigth', '18');
+      deleteVector.setAttribute('viewBox', '0 0 24 24');
+      deleteVector.setAttribute('stroke-width', '1.5');
+      deleteVector.setAttribute('stroke', '#FEFFF1');
+      deleteVector.setAttribute('fill', 'none');
+      deleteVector.setAttribute('stroke-linecap', 'round');
+      deleteVector.setAttribute('stroke-linejoin', 'round');
+
+      const pathDeleteVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathDeleteVector.setAttribute('stroke', 'none');
+      pathDeleteVector.setAttribute('d', 'M0 0h24v24H0z');
+      pathDeleteVector.setAttribute('fill', 'none');
+
+      const lineForTrash = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      lineForTrash.setAttribute('x1', '4');
+      lineForTrash.setAttribute('y1', '7');
+      lineForTrash.setAttribute('x2', '20');
+      lineForTrash.setAttribute('y2', '7');
+
+      const lineForTrashTwo = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      lineForTrashTwo.setAttribute('x1', '10');
+      lineForTrashTwo.setAttribute('y1', '11');
+      lineForTrashTwo.setAttribute('x2', '10');
+      lineForTrashTwo.setAttribute('y2', '17');
+
+      const lineForTrashThree = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      lineForTrashThree.setAttribute('x1', '14');
+      lineForTrashThree.setAttribute('y1', '11');
+      lineForTrashThree.setAttribute('x2', '14');
+      lineForTrashThree.setAttribute('y2', '17');
+
+      const pathDeleteVectorRedux = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathDeleteVectorRedux.setAttribute('d', 'M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12');
+
+      const pathDeleteVectorRemaster = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      pathDeleteVectorRemaster.setAttribute('d', 'M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3');
 
       const heartVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       heartVector.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -117,26 +155,11 @@ export const createReviewBox = () => {
       //  Insert elements in article tag
       heartVector.append(pathHeartVector, pathTwoHeartVector);
       if (obj.userId === user.uid) {
-        dotsVector.append(pathdotsVector, dotsVectorCircleOne, dotsVectorCircleTwo, dotsVectorCircleThree);
-        dotsVector.addEventListener('click', ()=> {
-          const optionsDiv = document.createElement('div');
-          optionsDiv.setAttribute('class', 'optionsReviewDiv');
-
-          const editButton = document.createElement('button');
-          editButton.setAttribute('class', 'editButtons');
-          editButton.innerHTML = 'Edit'
-
-          const deleteButton = document.createElement('button');
-          deleteButton.setAttribute('class', 'deleteButtons');
-          deleteButton.innerHTML = 'Delete'
-          
-          generalInfoDiv.removeChild(dotsVector);
-          optionsDiv.append(editButton, deleteButton);
-          generalInfoDiv.append(optionsDiv);
-        })
+        editVector.append(pathEditVector, pathEditVectorTwo, pathEditVectorThree, lineForVector);
+        deleteVector.append(pathDeleteVector, lineForTrash, lineForTrashTwo, lineForTrashThree, pathDeleteVectorRedux, pathDeleteVectorRemaster)
       }
       userMovieInfo.append(userName, movieName);
-      generalInfoDiv.append(userImage, userMovieInfo, dotsVector);
+      generalInfoDiv.append(userImage, userMovieInfo, editVector, deleteVector);
       articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);
 
       content.append(articlePublishedReview);
