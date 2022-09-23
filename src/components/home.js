@@ -7,8 +7,6 @@ export const home = () => {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  // showingChanges();
-
   const divAllHome = document.createElement('div');
 
   const bodyTag = document.querySelector('body');
@@ -127,7 +125,6 @@ export const home = () => {
   (async () => {
     divAllHome.append(profileHeader, await greetingUser, profileSection, reviewsDiv, await createReviewBox(), meanWhileDiv);
   })();
-  console.log(greetingUser);
 
   shareReviewButton.addEventListener('click', async () => {
     if (typeMovie.value === '' || typeReview.value === '') {
