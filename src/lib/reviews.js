@@ -1,6 +1,6 @@
 import {
   collection, addDoc, serverTimestamp,
-  query, onSnapshot, orderBy, doc, deleteDoc,
+  query, onSnapshot, orderBy, doc, deleteDoc, updateDoc
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { db } from './config.js';
@@ -166,15 +166,64 @@ export const createReviewBox = () => {
           confirmDeleteMessage.innerHTML = 'Are you sure you want delete this post? This action is permanent';
           confirmDeleteMessage.setAttribute('class', 'deleteMessage');
 
+          const deleteButtonsDiv = document.createElement('div');
+          deleteButtonsDiv.setAttribute('class', 'deleteDiv');
+
           const permanentelyDelete = document.createElement('button');
           permanentelyDelete.innerHTML = 'Delete permanentely';
           permanentelyDelete.setAttribute('class', 'confirmDeleteButton');
           confirmDeleteMessage.appendChild(permanentelyDelete);
 
-          deleteMessageDiv.append(confirmDeleteMessage);
+          const cancelDeleteButton = document.createElement('button');
+          cancelDeleteButton.setAttribute('class', 'cancelDelete');
+          cancelDeleteButton.innerHTML = 'Cancel';
+
+          deleteButtonsDiv.append(permanentelyDelete, cancelDeleteButton);
+          deleteMessageDiv.append(confirmDeleteMessage, deleteButtonsDiv);
 
           permanentelyDelete.addEventListener('click', async () => {
           await deleteDoc(doc(db, 'reviews', obj.id));
+          });
+
+          cancelDeleteButton.addEventListener('click', () => {
+            deleteMessageDiv.removeChild(confirmDeleteMessage);
+            deleteMessageDiv.removeChild(deleteButtonsDiv);
+          });
+        });
+
+        editVector.addEventListener('click', async () => {
+          const editReviewInput = document.createElement('textarea');
+          editReviewInput.setAttribute('class', 'typeReviewEdit');
+          editReviewInput.innerHTML = await `${obj.data().review}`;
+
+          articlePublishedReview.insertBefore(editReviewInput, heartVector);
+          articlePublishedReview.removeChild(paragraphReview);
+
+          const editionButtonsDiv = document.createElement('div');
+          editionButtonsDiv.setAttribute('class', 'editionDiv');
+
+          const saveEditButton = document.createElement('button');
+          saveEditButton.setAttribute('class', 'saveEdition');
+          saveEditButton.innerHTML = 'Save';
+
+          const cancelEditButton = document.createElement('button');
+          cancelEditButton.setAttribute('class', 'cancelEdition');
+          cancelEditButton.innerHTML = 'Cancel';
+
+          editionButtonsDiv.append(saveEditButton, cancelEditButton);
+          articlePublishedReview.insertBefore(editionButtonsDiv, heartVector);
+
+          saveEditButton.addEventListener('click', async () => {
+            const documentToEdit = (doc(db, 'reviews', obj.id));
+            await updateDoc(documentToEdit, {
+              review: editReviewInput.value,
+            });
+          });
+
+          cancelEditButton.addEventListener('click', () => {
+            articlePublishedReview.insertBefore(paragraphReview, heartVector);
+            articlePublishedReview.removeChild(editReviewInput);
+            articlePublishedReview.removeChild(editionButtonsDiv);
           });
         });
       }
