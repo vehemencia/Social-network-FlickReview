@@ -1042,7 +1042,8 @@ h3 {
 
 }
 
-.registerErrorMessage {
+.registerErrorMessage,
+.deleteMessage {
     width: auto;
     height: auto;
     color: var(--colorWhite);
@@ -1051,7 +1052,15 @@ h3 {
     font-family: var(--principalFont);
     margin: 0.5rem;
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 0.7rem;
+}
+
+.deleteMessage{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--colorPink);
+    color: var(--colorWhite);
+    text-align: center;
 }
 
 #privacyText:hover {
@@ -1076,30 +1085,22 @@ h3 {
 }
 
 /* EDIT OPTIONS */
-
-.optionsReviewDiv{
-    display:flex;
+.deleteMessageBox{
+    display: flex;
     flex-direction: column;
-    height: 3rem;
-    align-self: flex-end;
+    width: 25rem;
+    height: auto;
 }
 
-.editButtons{
-    width: 4.5rem;
-    height: 3rem;
-    background: var(--colorPink);
-    color: var(--colorWhite);
+.confirmDeleteButton{
+    margin-top: 0.5rem;
+    width:15rem;
+    height: 2rem;
+    font-size: 1rem;
+    align-self: center;
     border: none;
-    border-radius: 0.5rem 0.5rem 0 0;
-    font-size: 0.8rem;
-}
-
-.deleteButtons{
-    width: 4.5rem;
-    height: 3rem;
-    background: var(--colorBarnie);;
+    border-radius: 0.5rem;
+    background-color: var(--colorBarnie);
     color: var(--colorWhite);
-    border: none;
-    border-radius: 0 0 0.5rem 0.5rem;
-    font-size: 0.8rem;
+    font-weight: bold;
 }

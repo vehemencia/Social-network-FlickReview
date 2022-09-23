@@ -1,6 +1,6 @@
 import {
   collection, addDoc, serverTimestamp,
-  query, onSnapshot, orderBy,
+  query, onSnapshot, orderBy, doc, deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { db } from './config.js';
@@ -32,7 +32,7 @@ export const createReviewBox = () => {
     }
     const elements = [];
     querySnapshot.forEach((doc) => {
-      elements.push(doc.data());
+      elements.push(doc);
     });
     const eliminateRepeatedElements = new Set(elements);
     eliminateRepeatedElements.forEach((obj) => {
@@ -52,11 +52,11 @@ export const createReviewBox = () => {
 
       const userName = document.createElement('h3');
       userName.setAttribute('class', 'userNameHome');
-      userName.innerHTML = `${obj.userDisplayName}`;
+      userName.innerHTML = `${obj.data().userDisplayName}`;
 
       const movieName = document.createElement('h4');
       movieName.setAttribute('class', 'movieNameHome');
-      movieName.innerHTML = `${obj.title}`;
+      movieName.innerHTML = `${obj.data().title}`;
 
       const editVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       editVector.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -89,7 +89,7 @@ export const createReviewBox = () => {
 
       const paragraphReview = document.createElement('p');
       paragraphReview.setAttribute('class', 'writtenreview');
-      paragraphReview.innerHTML = `${obj.review}`;
+      paragraphReview.innerHTML = `${obj.data().review}`;
 
       const deleteVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       deleteVector.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
@@ -154,9 +154,29 @@ export const createReviewBox = () => {
 
       //  Insert elements in article tag
       heartVector.append(pathHeartVector, pathTwoHeartVector);
-      if (obj.userId === user.uid) {
+      if (obj.data().userId === user.uid) {
         editVector.append(pathEditVector, pathEditVectorTwo, pathEditVectorThree, lineForVector);
-        deleteVector.append(pathDeleteVector, lineForTrash, lineForTrashTwo, lineForTrashThree, pathDeleteVectorRedux, pathDeleteVectorRemaster)
+        deleteVector.append(pathDeleteVector, lineForTrash, lineForTrashTwo, lineForTrashThree, pathDeleteVectorRedux, pathDeleteVectorRemaster);
+        deleteVector.addEventListener('click', () => {
+          const deleteMessageDiv = document.createElement('div');
+          deleteMessageDiv.setAttribute('class', 'deleteMessageBox');
+          articlePublishedReview.insertBefore(deleteMessageDiv, heartVector);
+
+          const confirmDeleteMessage = document.createElement('p');
+          confirmDeleteMessage.innerHTML = 'Are you sure you want delete this post? This action is permanent';
+          confirmDeleteMessage.setAttribute('class', 'deleteMessage');
+
+          const permanentelyDelete = document.createElement('button');
+          permanentelyDelete.innerHTML = 'Delete permanentely';
+          permanentelyDelete.setAttribute('class', 'confirmDeleteButton');
+          confirmDeleteMessage.appendChild(permanentelyDelete);
+
+          deleteMessageDiv.append(confirmDeleteMessage);
+
+          permanentelyDelete.addEventListener('click', async () => {
+          await deleteDoc(doc(db, 'reviews', obj.id));
+          });
+        });
       }
       userMovieInfo.append(userName, movieName);
       generalInfoDiv.append(userImage, userMovieInfo, editVector, deleteVector);
