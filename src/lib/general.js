@@ -1,3 +1,6 @@
+/* eslint-disable consistent-return */
+/* eslint-disable max-len */
+/* eslint-disable no-param-reassign */
 export const wrongPassword = () => {
   const wrongPasswordMessage = document.createElement('p');
   wrongPasswordMessage.innerHTML = 'Wrong password, try again';
@@ -44,4 +47,9 @@ export function cleaningReviewBox(titleBox, reviewBox) {
     titleBox.value = '';
     reviewBox.value = '';
   }
+}
+
+export function countingChars(textArea, whereIsItGoingToPrint) {
+  const letter = textArea.value.length;
+  whereIsItGoingToPrint.innerHTML = `${letter}/700`;
 }

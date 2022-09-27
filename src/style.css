@@ -345,6 +345,16 @@ span:hover {
     resize: none;
 }
 
+.charCounter{
+    color: var(--colorWhite);
+    font-family: var(--principalFont);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: -0.3rem;
+    margin-right: 1.1rem;
+    align-self: flex-end;
+}
+
 #shareReviewButton,
 .saveEdition,
 .cancelEdition {
@@ -465,11 +475,16 @@ h3 {
     margin-top: -1rem;
     }
 
-.icon-tabler-heart {
+.icon-tabler-heart, .outlineheart {
     align-self: flex-end;
-    width: 3rem;
+    margin-right: 0.7rem;
+    margin-top: 0.5rem;
+    width: 2rem;
     height: auto;
-    /* filter: invert(100%); */
+}
+
+.outlineheart {
+    filter: invert(90%) hue-rotate(90deg) saturate(60%) brightness(100%);
 }
 
 /*Meanwhile buttons for go back to log in and go to profile*/

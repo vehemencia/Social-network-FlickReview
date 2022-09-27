@@ -1,6 +1,9 @@
+/* eslint-disable no-undef */
 import { getAuth, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { onNavigate } from '../main.js';
-import { messageDisplayError, cleaningReviewBox, removeErrorMessage } from '../lib/general.js';
+import {
+  messageDisplayError, cleaningReviewBox, removeErrorMessage, countingChars,
+} from '../lib/general.js';
 import { addReview, createReviewBox } from '../lib/reviews.js';
 
 export const home = () => {
@@ -35,11 +38,11 @@ export const home = () => {
   const greetingUser = document.createElement('h2');
   greetingUser.setAttribute('id', 'greetingUserText');
 
-   onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, (user) => {
     if (user.displayName !== null) {
-     greetingUser.innerHTML = `Welcome, ${user.displayName}!`;
+      greetingUser.innerHTML = `Welcome, ${user.displayName}!`;
     } else {
-      greetingUser.innerHTML = `Welcome, your account was created successfully!`;
+      greetingUser.innerHTML = 'Welcome, your account was created successfully!';
     }
   });
 
@@ -73,7 +76,12 @@ export const home = () => {
   movieReviewInput.setAttribute('id', 'typeReview');
   movieReviewInput.setAttribute('type', 'text');
   movieReviewInput.setAttribute('placeholder', 'Write your review here...');
-  movieReviewInput.setAttribute('maxlength', '240');
+  movieReviewInput.setAttribute('maxlength', '700');
+
+  const charCounter = document.createElement('p');
+  charCounter.setAttribute('class', 'charCounter');
+  movieReviewInput.addEventListener('keyup', () => { countingChars(movieReviewInput, charCounter); });
+  movieReviewInput.addEventListener('paste', () => { countingChars(movieReviewInput, charCounter); });
 
   const shareReviewButton = document.createElement('button');
   shareReviewButton.setAttribute('id', 'shareReviewButton');
@@ -81,7 +89,7 @@ export const home = () => {
   shareReviewButton.innerHTML = 'Share';
 
   // Insert elements in Section tag
-  profileSection.append(movieWatchedInput, movieReviewInput, shareReviewButton);
+  profileSection.append(movieWatchedInput, movieReviewInput, charCounter, shareReviewButton);
 
   // Creation of DOM elements that divide share review from published reviews
   const reviewsDiv = document.createElement('div');
@@ -133,6 +141,7 @@ export const home = () => {
     } else {
       await addReview(typeMovie, typeReview, user);
       cleaningReviewBox(typeMovie, typeReview);
+      charCounter.innerHTML = '';
     }
   });
   return divAllHome;

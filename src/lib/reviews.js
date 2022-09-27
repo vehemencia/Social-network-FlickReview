@@ -1,10 +1,11 @@
+/* eslint-disable max-len */
 import {
   collection, addDoc, serverTimestamp,
   query, onSnapshot, orderBy, doc, deleteDoc, updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { db } from './config.js';
-import { addLikes } from './likes.js'
+import { addLikes } from './likes.js';
 
 const q = query(collection(db, 'reviews'), orderBy('timeOfPublication', 'desc'));
 
@@ -134,11 +135,18 @@ export const createReviewBox = () => {
       pathDeleteVectorRemaster.setAttribute('d', 'M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3');
 
       const heartVector = document.createElement('img');
-      heartVector.setAttribute('class', 'icon-tabler-heart');
+      heartVector.setAttribute('class', 'outlineheart');
       heartVector.src = './images/liked.png';
 
+      const heartVectorLiked = document.createElement('img');
+      heartVectorLiked.setAttribute('class', 'icon-tabler-heart');
+      heartVectorLiked.src = './images/liked.png';
+
       heartVector.addEventListener('click', async () => {
-        await addLikes(obj.data().likedBy, user.uid, obj.id, heartVector);
+        const paintingButton = await addLikes(obj.data().likedBy, user.uid, obj.id);
+      });
+      heartVectorLiked.addEventListener('click', async () => {
+        const paintingButton = await addLikes(obj.data().likedBy, user.uid, obj.id);
       });
 
       if (obj.data().userId === user.uid) {
@@ -147,7 +155,11 @@ export const createReviewBox = () => {
         deleteVector.addEventListener('click', () => {
           const deleteMessageDiv = document.createElement('div');
           deleteMessageDiv.setAttribute('class', 'deleteMessageBox');
-          articlePublishedReview.insertBefore(deleteMessageDiv, heartVector);
+          if (obj.data().likedBy.includes(user.uid)) {
+            articlePublishedReview.insertBefore(deleteMessageDiv, heartVectorLiked);
+          } else {
+            articlePublishedReview.insertBefore(deleteMessageDiv, heartVector);
+          }
 
           const confirmDeleteMessage = document.createElement('p');
           confirmDeleteMessage.innerHTML = 'Are you sure you want delete this post? This action is permanent';
@@ -184,11 +196,8 @@ export const createReviewBox = () => {
         editVector.addEventListener('click', async () => {
           const editReviewInput = document.createElement('textarea');
           editReviewInput.setAttribute('class', 'typeReviewEdit');
+          editReviewInput.setAttribute('maxlength', '700');
           editReviewInput.innerHTML = await `${obj.data().review}`;
-
-          articlePublishedReview.insertBefore(editReviewInput, heartVector);
-          articlePublishedReview.removeChild(paragraphReview);
-          generalInfoDiv.removeChild(deleteVector);
 
           const editionButtonsDiv = document.createElement('div');
           editionButtonsDiv.setAttribute('class', 'editionDiv');
@@ -201,9 +210,21 @@ export const createReviewBox = () => {
           cancelEditButton.setAttribute('class', 'cancelEdition');
           cancelEditButton.innerHTML = 'Cancel';
 
+          if (obj.data().likedBy.includes(user.uid)) {
+            articlePublishedReview.insertBefore(editReviewInput, heartVectorLiked);
+            editionButtonsDiv.append(saveEditButton, cancelEditButton);
+            articlePublishedReview.insertBefore(editionButtonsDiv, heartVectorLiked);
+            generalInfoDiv.removeChild(editVector);
+          } else {
+            articlePublishedReview.insertBefore(editReviewInput, heartVector);
+            editionButtonsDiv.append(saveEditButton, cancelEditButton);
+            articlePublishedReview.insertBefore(editionButtonsDiv, heartVector);
+            generalInfoDiv.removeChild(editVector);
+          }
+
+          articlePublishedReview.removeChild(paragraphReview);
+          generalInfoDiv.removeChild(deleteVector);
           editionButtonsDiv.append(saveEditButton, cancelEditButton);
-          articlePublishedReview.insertBefore(editionButtonsDiv, heartVector);
-          generalInfoDiv.removeChild(editVector);
 
           saveEditButton.addEventListener('click', async () => {
             const documentToEdit = (doc(db, 'reviews', obj.id));
@@ -214,7 +235,11 @@ export const createReviewBox = () => {
           });
 
           cancelEditButton.addEventListener('click', () => {
-            articlePublishedReview.insertBefore(paragraphReview, heartVector);
+            if (obj.data().likedBy.includes(user.uid)) {
+              articlePublishedReview.insertBefore(paragraphReview, heartVectorLiked);
+            } else {
+              articlePublishedReview.insertBefore(paragraphReview, heartVector);
+            }
             articlePublishedReview.removeChild(editReviewInput);
             articlePublishedReview.removeChild(editionButtonsDiv);
             generalInfoDiv.append(editVector, deleteVector);
@@ -223,7 +248,12 @@ export const createReviewBox = () => {
       }
       userMovieInfo.append(userName, movieName);
       generalInfoDiv.append(userImage, userMovieInfo, editVector, deleteVector);
-      articlePublishedReview.append(generalInfoDiv, paragraphReview, heartVector);
+      articlePublishedReview.append(generalInfoDiv, paragraphReview);
+      if (obj.data().likedBy.includes(user.uid)) {
+        articlePublishedReview.append(heartVectorLiked);
+      } else {
+        articlePublishedReview.append(heartVector);
+      }
 
       content.append(articlePublishedReview);
     });
