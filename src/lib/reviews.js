@@ -1,9 +1,10 @@
 import {
   collection, addDoc, serverTimestamp,
-  query, onSnapshot, orderBy, doc, deleteDoc, updateDoc
+  query, onSnapshot, orderBy, doc, deleteDoc, updateDoc,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { db } from './config.js';
+import { addLikes } from './likes.js'
 
 const q = query(collection(db, 'reviews'), orderBy('timeOfPublication', 'desc'));
 
@@ -132,28 +133,14 @@ export const createReviewBox = () => {
       const pathDeleteVectorRemaster = document.createElementNS('http://www.w3.org/2000/svg', 'path');
       pathDeleteVectorRemaster.setAttribute('d', 'M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3');
 
-      const heartVector = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-      heartVector.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      heartVector.classList.add('icon', 'icon-tabler', 'icon-tabler-heart');
-      heartVector.setAttribute('width', '24');
-      heartVector.setAttribute('heigth', '24');
-      heartVector.setAttribute('viewBox', '0 0 24 24');
-      heartVector.setAttribute('stroke-width', '1');
-      heartVector.setAttribute('stroke', '#FEFFF1');
-      heartVector.setAttribute('fill', 'none');
-      heartVector.setAttribute('stroke-linecap', 'round');
-      heartVector.setAttribute('stroke-linejoin', 'round');
+      const heartVector = document.createElement('img');
+      heartVector.setAttribute('class', 'icon-tabler-heart');
+      heartVector.src = './images/liked.png';
 
-      const pathHeartVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      pathHeartVector.setAttribute('stroke', 'none');
-      pathHeartVector.setAttribute('d', 'M0 0h24v24H0z');
-      pathHeartVector.setAttribute('fill', 'none');
+      heartVector.addEventListener('click', async () => {
+        await addLikes(obj.data().likedBy, user.uid, obj.id, heartVector);
+      });
 
-      const pathTwoHeartVector = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-      pathTwoHeartVector.setAttribute('d', 'M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572');
-
-      //  Insert elements in article tag
-      heartVector.append(pathHeartVector, pathTwoHeartVector);
       if (obj.data().userId === user.uid) {
         editVector.append(pathEditVector, pathEditVectorTwo, pathEditVectorThree, lineForVector);
         deleteVector.append(pathDeleteVector, lineForTrash, lineForTrashTwo, lineForTrashThree, pathDeleteVectorRedux, pathDeleteVectorRemaster);
@@ -180,14 +167,17 @@ export const createReviewBox = () => {
 
           deleteButtonsDiv.append(permanentelyDelete, cancelDeleteButton);
           deleteMessageDiv.append(confirmDeleteMessage, deleteButtonsDiv);
+          generalInfoDiv.removeChild(deleteVector);
+          generalInfoDiv.removeChild(editVector);
 
           permanentelyDelete.addEventListener('click', async () => {
-          await deleteDoc(doc(db, 'reviews', obj.id));
+            await deleteDoc(doc(db, 'reviews', obj.id));
           });
 
           cancelDeleteButton.addEventListener('click', () => {
             deleteMessageDiv.removeChild(confirmDeleteMessage);
             deleteMessageDiv.removeChild(deleteButtonsDiv);
+            generalInfoDiv.append(editVector, deleteVector);
           });
         });
 
@@ -198,6 +188,7 @@ export const createReviewBox = () => {
 
           articlePublishedReview.insertBefore(editReviewInput, heartVector);
           articlePublishedReview.removeChild(paragraphReview);
+          generalInfoDiv.removeChild(deleteVector);
 
           const editionButtonsDiv = document.createElement('div');
           editionButtonsDiv.setAttribute('class', 'editionDiv');
@@ -212,18 +203,21 @@ export const createReviewBox = () => {
 
           editionButtonsDiv.append(saveEditButton, cancelEditButton);
           articlePublishedReview.insertBefore(editionButtonsDiv, heartVector);
+          generalInfoDiv.removeChild(editVector);
 
           saveEditButton.addEventListener('click', async () => {
             const documentToEdit = (doc(db, 'reviews', obj.id));
             await updateDoc(documentToEdit, {
               review: editReviewInput.value,
             });
+            generalInfoDiv.append(editVector, deleteVector);
           });
 
           cancelEditButton.addEventListener('click', () => {
             articlePublishedReview.insertBefore(paragraphReview, heartVector);
             articlePublishedReview.removeChild(editReviewInput);
             articlePublishedReview.removeChild(editionButtonsDiv);
+            generalInfoDiv.append(editVector, deleteVector);
           });
         });
       }

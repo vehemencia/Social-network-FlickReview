@@ -467,6 +467,9 @@ h3 {
 
 .icon-tabler-heart {
     align-self: flex-end;
+    width: 3rem;
+    height: auto;
+    /* filter: invert(100%); */
 }
 
 /*Meanwhile buttons for go back to log in and go to profile*/
