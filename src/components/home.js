@@ -46,21 +46,11 @@ export const home = () => {
     }
   });
 
-  /* const hamburgerMenuContent = document.createElement('ul');
-  hamburgerMenuContent.classList.add('menu');
+  const btnLogOutHome = document.createElement('button');
+  btnLogOutHome.classList.add('buttonLogOut');
+  btnLogOutHome.innerHTML = 'Log Out';
 
-  const contentMenuLiOne = document.createElement('li');
-  contentMenuLiOne.innerHTML = 'Profile';
-
-  const contentMenuLiTwo = document.createElement('li');
-  contentMenuLiTwo.innerHTML = 'Log Out'; */
-
-  // Insert Elements in Header Tag
-
-  // hamburgerMenuContent.append(contentMenuLiOne, contentMenuLiTwo);
-  profileHamburgerMenu.append(hamburgerMenuLineOne, hamburgerMenuLineTwo, hamburgerMenuLineThree);
-  // eslint-disable-next-line max-len
-  profileHeader.append(profileHeaderTitle, profileHamburgerMenu /* , hamburgerMenuContent */);
+  profileHeader.append(profileHeaderTitle, btnLogOutHome);
 
   //  Creation of DOM Elements of Section
 
@@ -108,10 +98,7 @@ export const home = () => {
   const meanWhileDiv = document.createElement('div');
   meanWhileDiv.setAttribute('id', 'meanWhileDiv');
 
-  const meanwhileButton = document.createElement('button');
-  meanwhileButton.classList.add('meanWhile');
-  meanwhileButton.innerHTML = 'Log Out';
-  meanwhileButton.addEventListener('click', () => {
+  btnLogOutHome.addEventListener('click', () => {
     signOut(auth).then(() => {
       // Sign-out successful
     }).catch((error) => {
@@ -120,18 +107,8 @@ export const home = () => {
     onNavigate('/');
   });
 
-  const meanwhileButtonTwo = document.createElement('button');
-  meanwhileButtonTwo.classList.add('meanWhile');
-  meanwhileButtonTwo.innerHTML = 'My Profile';
-  meanwhileButtonTwo.addEventListener('click', () => {
-    onNavigate('/profile');
-  });
-
-  meanWhileDiv.append(meanwhileButtonTwo, meanwhileButton);
-  // insertion of all content in home div
-  // eslint-disable-next-line max-len
   (async () => {
-    divAllHome.append(profileHeader, await greetingUser, profileSection, reviewsDiv, await createReviewBox(), meanWhileDiv);
+    divAllHome.append(profileHeader, await greetingUser, profileSection, reviewsDiv, await createReviewBox());
   })();
 
   shareReviewButton.addEventListener('click', async () => {

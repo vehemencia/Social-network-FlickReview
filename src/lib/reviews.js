@@ -149,6 +149,14 @@ export const createReviewBox = () => {
         const paintingButton = await addLikes(obj.data().likedBy, user.uid, obj.id);
       });
 
+      const displayLikesDiv = document.createElement('div');
+      displayLikesDiv.setAttribute('class', 'displaylikesdiv');
+      const likesParagraph = document.createElement('p');
+      likesParagraph.setAttribute('class', 'displaylikestext');
+      likesParagraph.innerHTML = `${obj.data().likedBy.length}`;
+
+      displayLikesDiv.appendChild(likesParagraph);
+
       if (obj.data().userId === user.uid) {
         editVector.append(pathEditVector, pathEditVectorTwo, pathEditVectorThree, lineForVector);
         deleteVector.append(pathDeleteVector, lineForTrash, lineForTrashTwo, lineForTrashThree, pathDeleteVectorRedux, pathDeleteVectorRemaster);
@@ -250,9 +258,9 @@ export const createReviewBox = () => {
       generalInfoDiv.append(userImage, userMovieInfo, editVector, deleteVector);
       articlePublishedReview.append(generalInfoDiv, paragraphReview);
       if (obj.data().likedBy.includes(user.uid)) {
-        articlePublishedReview.append(heartVectorLiked);
+        articlePublishedReview.append(heartVectorLiked, displayLikesDiv);
       } else {
-        articlePublishedReview.append(heartVector);
+        articlePublishedReview.append(heartVector, displayLikesDiv);
       }
 
       content.append(articlePublishedReview);

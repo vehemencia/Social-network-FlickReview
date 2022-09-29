@@ -1,7 +1,7 @@
 // Import functions that show/append nodes
 import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
 import { home } from './components/home.js';
-import { profile } from './components/profile.js';
+// import { profile } from './components/profile.js';
 import { logIn } from './components/login.js';
 import { register } from './components/register.js';
 import { app } from './lib/config.js';
@@ -14,7 +14,7 @@ const routes = {
   '/': logIn,
   '/register': register,
   '/home': home,
-  '/profile': profile,
+ // '/profile': profile,
 };
 
 // function for changing nodes according to route
