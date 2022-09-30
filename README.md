@@ -55,7 +55,7 @@ Se realizó el deploy a través de Firebase Hosting y se encuentra disponible [a
 
 ![Vista final de register](src/images/finalregister.PNG)
 
-![Vista final de home](src/images/finalhome.PNGg)
+![Vista final de home](src/images/finalhome.PNG)
 
 
 ## 5. Pruebas de usabilidad

@@ -1,3 +1,8 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable no-unused-vars */
+/* eslint-disable consistent-return */
+/* eslint-disable max-len */
+/* eslint-disable import/no-unresolved */
 import {
   getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
@@ -94,14 +99,12 @@ export const logIn = () => {
   // Add Event to button Action!
   sectionButtonLog.addEventListener('click', () => {
     const loginData = validateLogin(sectionInputUserName.value, sectionInputPass.value);
-    if (loginData == false) {
+    if (loginData === false) {
       return setTimeout(removeErrorMessage, 3000);
     }
     const auth = getAuth();
     signInWithEmailAndPassword(auth, sectionInputUserName.value, sectionInputPass.value)
       .then((userCredential) => {
-      // Signed in
-        const user = userCredential.user;
         onNavigate('/home');
       })
       .catch((error) => {
@@ -116,21 +119,9 @@ export const logIn = () => {
     const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
         onNavigate('/home');
-        // ...
       }).catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
+        onNavigate('/');
       });
   });
 

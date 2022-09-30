@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import {
   doc, updateDoc, arrayUnion, arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';

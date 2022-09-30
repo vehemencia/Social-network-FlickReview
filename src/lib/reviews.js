@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import {
   collection, addDoc, serverTimestamp,
@@ -33,8 +35,8 @@ export const createReviewBox = () => {
       content.replaceChildren();
     }
     const elements = [];
-    querySnapshot.forEach((doc) => {
-      elements.push(doc);
+    querySnapshot.forEach((docu) => {
+      elements.push(docu);
     });
     const eliminateRepeatedElements = new Set(elements);
     eliminateRepeatedElements.forEach((obj) => {
