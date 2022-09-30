@@ -34,27 +34,48 @@ en una sala de cine. Tonos vibrantes como el rosa y el azul que hacen juego con 
 
 ## 3. Prototipado
 
-Se llevaron a cabo prototipados de baja y alta fidelidad para las secciones de inicio de sesión (log in), 
+Se llevaron a cabo prototipados de baja fidelidad en photoshop y alta fidelidad en figma para las secciones de inicio de sesión (log in), 
 registro (register) y página principal (home).
 
-![Prototipo de baja fidelidad de log in](https://trello.com/1/cards/6307c2964902db001fe16f41/attachments/6307f74773a3be01989408e2/previews/6307f74873a3be01989408ef/download/PROTOTIPO_DE_BAJA_FIDELIDAD_Mesa_de_trabajo_1.jpg)
+![Prototipo de baja fidelidad de log in](src/images/PROTOTIPO_DE_BAJA_FIDELIDAD_Mesa_de_trabajo_1.jpg)
 
 ![Prototipo de alta fidelidad de register](src/images/register.PNG)
 
-![Prototipo de alta fidelidad de home](https://trello.com/1/cards/63111bab8866d302276ba2dc/attachments/631125a7c6f94702d6d04223/previews/631125a7c6f94702d6d0422e/download/prototipo_home.PNG.png)
+![Prototipo de alta fidelidad de home](src/images/prototipo_home.PNG.png)
 
-<!-- 
+
 ## 4. Versión final
 
-* Este proyecto se debe trabajar en equipos de tres.
+Para la versión final de la aplicación, las vistas de login y register están disponibles para quienes accedan al sitio, 
+pero para poder realizar y visualizar las publicaciones de otros usuarios registrados es necesario crear una cuenta o iniciar sesión. 
 
+Se realizó el deploy a través de Firebase Hosting y se encuentra disponible [aquí](https://flickreview-labo.web.app/).
+
+![Vista final de log in](src/images/finallogin.PNG)
+
+![Vista final de register](src/images/finalregister.PNG)
+
+![Vista final de home](src/images/finalhome.PNGg)
 
 
 ## 5. Pruebas de usabilidad
 
-Permite editar perfil.
+Durante diversas fases del desarrollo se llevaron a cabo pruebas de usabilidad con distintos grupos de usuarios. 
+La finalidad de la primera prueba fue conocer si el flujo de navegación para registrarse e iniciar sesión resultaba 
+intuitivo para alguien que no estaba familiarizado con la plataforma; también se implementaron los comentarios recibidos
+durante estas entrevistas para mejorar la experiencia de uso.
+
+Después se realizaron pruebas para crear publicaciones una vez que el usuario ingresó. 
+
+[Aquí](https://drive.google.com/drive/folders/1ITEjvpeOtdn4RiyqYyzLB0EfyTRORURy?usp=sharing) pueden consultarse los registros.
+
+
 
 ## 7. Créditos y agradecimientos
 
-El proyecto será _entregado_ s -->
+Este proyecto fue realizado por Alexandra Álvarez, Fernanda Alvarez y Gabriela Horcasitas.
 
+Gracias a lxs coaches y equipos que nos apoyaron, compartieron sus conocimientos y acompañaron durante este proceso. 
+Agradecemos especialmente a Julissa Rodriguez, quien nos direccionó e inspiró durante nuestros momentos de frustración. 
+
+También agradecemos a Michiberto, Mila, Lina, Aysa, Midi y Suavi por vigilarnos mientras trabajabamos para no perder la concentración.
