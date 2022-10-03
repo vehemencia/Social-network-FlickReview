@@ -1,7 +1,7 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 // Import functions that show/append nodes
-import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { getAuth, onAuthStateChanged } from './importsFromFirebase.js';
 import { home } from './components/home.js';
 // import { profile } from './components/profile.js';
 import { logIn } from './components/login.js';

@@ -1,9 +1,14 @@
-// importamos la funcion que vamos a testear
+/**
+*@ jest-environment jsdom
+*/
+
 import { register } from '../src/components/register.js';
 
-describe('register', () => {
-  it('is a function', () => {
-    document.body.append(register());
+jest.mock('./src/main.js');
+jest.mock('./src/importsFromFirebase.js');
+
+describe('Register', () => {
+  it('should be a function', () => {
     expect(typeof register).toBe('function');
   });
 });

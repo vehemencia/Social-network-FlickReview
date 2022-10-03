@@ -3,7 +3,7 @@
 /* eslint-disable max-len */
 import {
   getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile,
-} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+} from '../importsFromFirebase.js';
 import { onNavigate } from '../main.js';
 import { registerValidation, removeErrorMessage, messageDisplayError } from '../lib/general.js';
 

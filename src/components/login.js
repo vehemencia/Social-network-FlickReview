@@ -5,7 +5,7 @@
 /* eslint-disable import/no-unresolved */
 import {
   getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
-} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+} from '../importsFromFirebase.js';
 import { onNavigate } from '../main.js';
 import { wrongPassword, removeErrorMessage, validateLogin } from '../lib/general.js';
 

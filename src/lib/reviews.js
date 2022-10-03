@@ -2,10 +2,9 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import {
-  collection, addDoc, serverTimestamp,
+  getAuth, collection, addDoc, serverTimestamp,
   query, onSnapshot, orderBy, doc, deleteDoc, updateDoc,
-} from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
-import { getAuth } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+} from '../importsFromFirebase.js';
 import { db } from './config.js';
 import { addLikes } from './likes.js';
 
