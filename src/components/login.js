@@ -4,14 +4,13 @@
 /* eslint-disable max-len */
 /* eslint-disable import/no-unresolved */
 import {
-  getAuth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
+  auth, signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup,
 } from '../importsFromFirebase.js';
 import { onNavigate } from '../main.js';
 import { wrongPassword, removeErrorMessage, validateLogin } from '../lib/general.js';
 
-const provider = new GoogleAuthProvider();
-
 export const logIn = () => {
+  const provider = new GoogleAuthProvider();
   const bodyTag = document.querySelector('body');
   bodyTag.style.backgroundImage = 'url(./images/collage.png)';
 
@@ -102,7 +101,6 @@ export const logIn = () => {
     if (loginData === false) {
       return setTimeout(removeErrorMessage, 3000);
     }
-    const auth = getAuth();
     signInWithEmailAndPassword(auth, sectionInputUserName.value, sectionInputPass.value)
       .then((userCredential) => {
         onNavigate('/home');
@@ -116,7 +114,6 @@ export const logIn = () => {
   });
 
   sectionGoogleLog.addEventListener('click', () => {
-    const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
         onNavigate('/home');

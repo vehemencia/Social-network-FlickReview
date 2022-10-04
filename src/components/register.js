@@ -2,12 +2,10 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import {
-  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile,
+  auth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, updateProfile, provider,
 } from '../importsFromFirebase.js';
 import { onNavigate } from '../main.js';
 import { registerValidation, removeErrorMessage, messageDisplayError } from '../lib/general.js';
-
-const provider = new GoogleAuthProvider();
 
 export const register = () => {
   const bodySelector = document.querySelector('body'); // Here you can select body element from HTML
@@ -138,9 +136,8 @@ export const register = () => {
     if (validation === false) {
       setTimeout(removeErrorMessage, 3000);
     } else {
-      const auth = getAuth();
       createUserWithEmailAndPassword(auth, inputEmailSection.value, createPasswordSection.value)
-        .then((userCredential) => {
+        .then(() => {
           if (createUsernameSection.value !== '') {
             updateProfile(auth.currentUser, {
               displayName: createUsernameSection.value,
@@ -161,7 +158,6 @@ export const register = () => {
   });
 
   sectionGoogleLog.addEventListener('click', () => {
-    const auth = getAuth();
     signInWithPopup(auth, provider)
       .then((result) => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -182,6 +178,5 @@ export const register = () => {
   // Creation and insertion of DIV for all content
   const allContent = document.createElement('div');
   allContent.append(registerPageHeader, registerSection);
-
   return allContent;
 };

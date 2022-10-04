@@ -1,12 +1,11 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-unused-vars */
 // Import functions that show/append nodes
-import { getAuth, onAuthStateChanged } from './importsFromFirebase.js';
+import { onAuthStateChanged, auth } from './importsFromFirebase.js';
 import { home } from './components/home.js';
 // import { profile } from './components/profile.js';
 import { logIn } from './components/login.js';
 import { register } from './components/register.js';
-import { app } from './lib/config.js';
 
 // save main box content in a variable
 const rootMain = document.querySelector('#root');
@@ -42,8 +41,6 @@ window.onpopstate = () => {
   }
   rootMain.append(component());
 };
-
-const auth = getAuth();
 
 onAuthStateChanged(auth, (user) => {
   if (user) {

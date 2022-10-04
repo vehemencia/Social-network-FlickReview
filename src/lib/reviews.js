@@ -2,10 +2,10 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable max-len */
 import {
-  getAuth, collection, addDoc, serverTimestamp,
+  auth, collection, addDoc, serverTimestamp,
   query, onSnapshot, orderBy, doc, deleteDoc, updateDoc,
+  db,
 } from '../importsFromFirebase.js';
-import { db } from './config.js';
 import { addLikes } from './likes.js';
 
 const q = query(collection(db, 'reviews'), orderBy('timeOfPublication', 'desc'));
@@ -25,7 +25,6 @@ export const addReview = async (movieInput, reviewInput, user) => {
 
 //  Create review box
 export const createReviewBox = () => {
-  const auth = getAuth();
   const user = auth.currentUser;
   const content = document.createElement('section');
   content.setAttribute('id', 'reviewsSection');

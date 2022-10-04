@@ -2,7 +2,7 @@
 /* eslint-disable no-shadow */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable no-undef */
-import { getAuth, signOut, onAuthStateChanged } from '../importsFromFirebase.js';
+import { auth, signOut, onAuthStateChanged } from '../importsFromFirebase.js';
 import { onNavigate } from '../main.js';
 import {
   messageDisplayError, cleaningReviewBox, removeErrorMessage, countingChars,
@@ -10,7 +10,6 @@ import {
 import { addReview, createReviewBox } from '../lib/reviews.js';
 
 export const home = () => {
-  const auth = getAuth();
   const user = auth.currentUser;
 
   const divAllHome = document.createElement('div');

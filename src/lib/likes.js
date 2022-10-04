@@ -1,8 +1,7 @@
 /* eslint-disable import/no-unresolved */
 import {
-  doc, updateDoc, arrayUnion, arrayRemove,
+  doc, updateDoc, arrayUnion, arrayRemove, db,
 } from '../importsFromFirebase.js';
-import { db } from './config.js';
 
 export async function addLikes(accessToLikedByArray, loggedUserId, specificDocumentId) {
   const match = await accessToLikedByArray.includes(loggedUserId);
