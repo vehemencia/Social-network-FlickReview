@@ -46,6 +46,8 @@ describe('Register', () => {
     confirmPassword.value = 'Abcdef1';
     checkBox.checked = true;
     buttonRegister.click();
-    expect(window.location.pathname).toEqual('/home');
+    setTimeout(() => {
+      expect(window.location.pathname).toBe('/home');
+    }, 1000);
   });
 });
